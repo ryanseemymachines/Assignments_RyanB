@@ -1,0 +1,103 @@
+/*Container*/
+h2{
+    margin-left: 10px;
+}
+.div-container{
+    margin:0 200px;
+    box-shadow: 4px 4px 10px gray;
+    border-radius: 20px;
+}
+img{
+    border: 5px solid rgb(162, 162, 162);
+    border-radius: 50%;
+    width:150px;
+    height:150px;
+    display: block;
+    margin: auto;
+    margin-top:10px;
+}
+/*Name*/
+.name{
+    margin:0;
+    padding:0;
+    text-align: center;
+    padding: 5px;
+}
+.name p{
+    font-size: large;
+}
+/*About*/
+.about-des{
+    font-size: large;
+    margin:10px;
+}
+/*Work*/
+.work li{
+    font-size: large;
+}
+/*Education*/
+.education{
+    margin-bottom: 20px;
+}
+.education .tab{
+    margin:auto;
+    
+}
+table,th,td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+/*Connect*/
+.connect a{
+    text-decoration: none;
+    background-color: rgb(26, 136, 214);
+    color:white;
+    font-size: larger;
+    padding: 15px;
+    border-radius: 15px;
+    
+}
+.connect a:hover{
+    background-color: rgb(12, 69, 100);
+    box-shadow: 4px 4px 10px gray;
+}
+
+.connect{
+    display:flex;
+    justify-content: center;
+}
+
+/*cv*/
+.cv{
+    font-size:x-large;
+    display:flex;
+    justify-content: center;
+}
+select{
+    width: 110px;
+    height:30px;
+    text-align: center;
+    padding: 0;
+    font-size:large;
+}
+select:hover{
+    border:2px solid black;
+    box-shadow: 4px 4px 10px gray;
+}
+
+/*hire*/
+.hire{
+    display:flex;
+    justify-content: center;
+}
+button{
+    width: 100px;
+    height: 50px;
+    font-size: larger;
+}
+
+button:hover{
+    box-shadow: 4px 4px 10px gray;
+}
