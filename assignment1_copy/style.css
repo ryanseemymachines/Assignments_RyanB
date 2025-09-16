@@ -49,6 +49,7 @@ table,th,td{
     border-collapse: collapse;
     padding: 10px;
     text-align: center;
+    width: 33%;
 }
 /* Footer */
 footer{
