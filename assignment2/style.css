@@ -1,0 +1,43 @@
+body{
+    margin:0;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+header,footer{
+    flex-grow:1;
+    text-align: center;
+    background-color:antiquewhite;
+    padding:20px;
+}
+
+main{
+    display:flex;
+    flex-wrap: nowrap;
+    padding: 5px;
+}
+section{
+    margin:10px;
+    padding:20px;
+    background-color: beige;
+    border: 1px solid black;
+}
+
+@media screen and (max-width:1199px) {
+    body{
+        flex-direction: column;
+    }
+    main{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body{
+        flex-direction: column;
+    }
+    main{
+        flex-wrap: wrap;
+        padding:20px;
+    }
+}
