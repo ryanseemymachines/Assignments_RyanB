@@ -18,15 +18,12 @@ main {
     padding: 20px;
 }
 
-li {
-    list-style: none;
-}
-
 a {
-    text-decoration: none;
     color: black;
     padding: 8px 15px;
     border-radius: 4px;
+    border: 1px solid transparent;
+    text-decoration: none;
 }
 
 a:hover {
@@ -38,7 +35,9 @@ ul {
     display: flex;
     gap: 10px;
 }
-
+.nav-bar li{
+    list-style: none;
+}
 .nav-bar {
     width: 100%;
     display: flex;
@@ -104,7 +103,9 @@ ul {
 .mobile-nav li {
     width: 100%;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
+
 
 .mobile-nav a {
     display: block;
@@ -226,7 +227,7 @@ button:hover {
 
 #how{
     margin:auto;
-    padding:50px;
+    padding:20px;
     max-width:95%;
     border-radius: 8px;
     background:radial-gradient(#000000 40%, #969696 100%);
@@ -234,11 +235,11 @@ button:hover {
     display: flex;          
     flex-direction: column;   
     align-items: center;
-
+    gap:10px;
 }
 #how>p{
-    padding:50px;
-    font-size: 30px;
+    padding:20px;
+    font-size: 12px;
     font-family: "Italianno", cursive;
     font-weight: 400;
     font-size:50px;
@@ -285,7 +286,6 @@ button:hover {
     display: block;
 }
 .price-details li{
-    list-style-type: disc;
     list-style-position: inside;
 }
 
@@ -308,6 +308,16 @@ button:hover {
     line-height: 1.5;
 }
 
+.button-area{
+    margin: 10px;
+    background-color: #d8d8d8;
+    min-height:100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 8px;
+}
 /* Media Queries - Larger screens */
 
 @media (min-width:650px){
@@ -344,9 +354,17 @@ button:hover {
     .nav-items-left {
         display: flex;
         align-items: center;
+        max-width: fit-content;
     }
     .main-content p{
         font-size: 25px;
+    }
+    .button-area{
+        flex-direction: row;
+        justify-content: space-evenly;
+        max-width: 95%;
+        margin: auto;
+        margin-top: 10px;
     }
 }
 
@@ -383,5 +401,8 @@ button:hover {
 {
     .price-container{
         flex-direction: row;
+    }
+    #how>p{
+        font-size: 60px;
     }
 }
