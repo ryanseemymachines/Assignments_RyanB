@@ -24,11 +24,12 @@ a {
     border-radius: 4px;
     border: 1px solid transparent;
     text-decoration: none;
+    transition: all 0.4s ease;
 }
 
 a:hover {
-    background-color: #f0f0f0;
-    border: 1px solid #7d7c7c;
+    background-color: #afafaf;
+    border: 1px solid #000000;
 }
 
 ul {
@@ -42,7 +43,6 @@ ul {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
     padding: 15px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: relative;
