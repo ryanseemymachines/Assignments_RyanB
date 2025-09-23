@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images Demo</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Responsive Images Demo</h1>
+        </header>
+        <section>
+            <h2>Aspect Ratio Responsive Images</h2>
+            <div class="aspect-grid">
+                <img class="aspect-16-9" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop" alt="Forest - 16:9">
+                <img class="aspect-4-3" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop" alt="Beach - 4:3">
+                <img class="aspect-1-1" src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=800&fit=crop" alt="City - 1:1">
+            </div>
+        </section>
+        <section>
+            <h2>Different Images for Different Screen Sizes</h2>
+                <div class="main-image">
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&fit=crop">
+                        <source media="(max-width: 1024px)" srcset="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&fit=crop">
+                        <source media="(min-width: 1025px)" srcset="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&fit=crop" alt="Responsive main image">
+                    </picture>
+                </div>
+        </section>
+    </main>
+</body>
+</html>
