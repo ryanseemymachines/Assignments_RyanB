@@ -125,7 +125,7 @@ main>h1{
     padding: 40px;
 }
 /* flex */
-.image-area{
+/* .image-area{
     min-height: auto;
     display: flex;
     flex-wrap:wrap;
@@ -157,16 +157,16 @@ main>h1{
   main>h1{
     font-size:30px;
     }
-}
+} */
 
 /*Grid*/
-/* .image-area{
+.image-area{
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap:10px;
 }
 .column img{
-    padding: 3px 5px;
+    padding: 3px 3px;
     border-radius: 20px;
 }
 @media screen and (max-width: 1199px) {
@@ -184,7 +184,7 @@ main>h1{
     main>h1{
     font-size:30px;
     }
-} */
+}
 
 @media (max-width:820px){
     .logo>a{
