@@ -1,0 +1,33 @@
+html{
+    font-size:50px;
+    margin: 20px;
+}
+.parent{
+    font-size: 60px;
+}
+.child{
+    font-size:3em;
+    border:0.5em solid black;
+    padding: 0.25rem;
+}
+.root-child{
+    font-size:1rem;
+    border:0.5rem solid rgb(208, 27, 27);
+    padding: 0.755rem;
+}
+@media (max-width:800px){
+    html{
+        font-size: 30px;
+    }
+    .parent{
+        font-size:40px;
+    }
+}
+@media (max-width:500px){
+    html{
+        font-size: 15px;
+    }
+    .parent{
+        font-size: 25px;
+    }
+}
