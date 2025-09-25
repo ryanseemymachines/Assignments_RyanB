@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Photoshoot Submission Form</title>
+  </head>
+  <body>
+    <header>
+      <h1>Submission Form</h1>
+      <p>
+        You can order a session by filling out the form below. We offer
+        discounts for the early registrations.
+      </p>
+      <ul>
+        <li>Basic: ₹3000(1.5hr) , includes 10 major edits and 5 minor edits</li>
+        <li>
+          Standard: ₹4500(2hr) , includes 15major edits and 10 minor edits
+        </li>
+        <li>
+          Extra charge if video required(price depends on footage and video
+          length)
+        </li>
+      </ul>
+    </header>
+    <main>
+      <section class="form-area">
+        <form>
+          <!--Name-->
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="user_name"
+            placeholder="Enter name..."
+            title="Name field"
+            required
+          />
+            <!-- Mail id -->
+          <label for="mail">E-Mail</label>
+          <input
+            type="email"
+            id="mail"
+            name="mailid"
+            placeholder="Enter e-mail..."
+            title="Mail id field"
+            required
+          />
+            <!-- Phone -->
+          <label for="phone">Phone number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            placeholder="Enter phone.."
+            title="Phone"
+            required
+          />
+            <!-- Purpose -->
+          <label for="purpose">Purpose of shoot</label>
+          <textarea
+            id="purpose"
+            name="purpose"
+            placeholder="Enter purpose.."
+            title="Purpose of shoot"
+            required
+          ></textarea>
+            <!-- Plan type -->
+          <fieldset class="plan-type">
+            <legend for="plan">Plan type</legend>
+            <label>
+              <input type="radio" id="plan1" name="choice" />Basic plan
+            </label>
+            <label>
+              <input type="radio" id="plan2" name="choice" />Standard plan
+            </label>
+          </fieldset>
+          <!-- video requirement -->
+          <fieldset class="video-req">
+            <legend for="video">Video requirement:</legend>
+            <label> <input type="radio" id="video-yes" name="choice2" />Yes </label>
+            <label>
+              <input type="radio" id="video-no" name="choice2" />No
+            </label>
+          </fieldset>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
