@@ -1,0 +1,85 @@
+body{
+    background:linear-gradient(#e79f19b6,#d81313b9);
+    padding: 30px;
+}
+h1,h2{
+    text-align: center;
+}
+
+section>p{
+    margin-top:0;
+    font-size: 20px;
+}
+
+section{
+    background-color: rgba(201, 192, 179, 0.432);
+    padding:40px;
+    margin: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 7px grey;
+}
+
+/* button styling */
+button{
+    background-color: rgb(0, 179, 0);
+    padding:10px;
+    color:white;
+    border: none;
+    border-radius: 7px;
+    display: block;
+    margin: auto;
+}
+
+button:hover,input[type=submit]:hover{
+    transition: all ease 0.5s;
+    background-color: rgb(33, 124, 33);
+    color:white;
+    border: none;
+    box-shadow: 0 0 5px grey;
+    border-radius: 7px;
+}
+
+/* form section styling */
+
+label{
+    display:block;
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+input[type=text], textarea{
+    padding:10px;
+    width:100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+textarea{
+    max-width: 100%;
+}
+
+input[type=submit]{
+    height: 40px;
+    width:70px;
+    background-color: rgb(0, 179, 0);
+    padding:10px;
+    color:white;
+    border: none;
+    border-radius: 7px;
+}
+p{
+    font-size: 40px;
+    text-align: center;
+    font-weight: 400;
+}
+canvas{
+    display: block;
+    margin: auto;
+}
+h3{
+    text-align: center;
+    font-size:50px;
+}
+iframe{
+    display: block;
+    margin: auto;
+}
