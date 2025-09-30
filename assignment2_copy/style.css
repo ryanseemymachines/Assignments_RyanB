@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+header,footer{
+    flex-grow:1;
+    text-align: center;
+    background-color:antiquewhite;
+    padding:20px;
+}
+
+main{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+}
+section{
+    margin:10px;
+    padding:20px;
+    background-color: beige;
+    border: 1px solid black;
+}
+
+ @media screen and (max-width:1199px) {
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+} 
+
+@media screen and (max-width:768px) {
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        padding:20px;
+    }
+} 
