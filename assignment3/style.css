@@ -16,18 +16,18 @@ main{
     display:flex;
     flex-direction: column;
 }
-.nav-left a{
+.nav-items-left a{
     display:flex;
     align-items: center;
     gap:10px;
     padding:10px;
 }
-.nav-right,.nav-center{
+.nav-items-right,.nav-items-center{
     display:flex;
     flex-wrap:nowrap;
     padding:10px;
 }
-.nav-center a,.nav-right a{
+.nav-items-center a,.nav-items-right a{
     padding:10px;
 }
 /* main caption */
@@ -126,7 +126,7 @@ button{
     body{
         padding: 6px;
     }
-    .nav-center{
+    .nav-items-center{
         display: none;
     }
     #main-tag{
@@ -142,7 +142,6 @@ button{
         justify-content: space-between;
         align-items: center;
         padding:20px;
-
     }
     #main-tag{
         font-size: 75px;
@@ -169,7 +168,6 @@ button{
         grid-template-rows: auto auto auto;
         justify-items: center;
     }
-
     .container4{
         grid-column: 1/ span 2;
         width: 350px;
