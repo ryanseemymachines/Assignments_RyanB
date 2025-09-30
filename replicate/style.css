@@ -12,7 +12,8 @@ a{
 
 body{
     background:linear-gradient(to right,#ff3a6b,#FE617C);
-    min-height: 100vh;
+    min-height: 100vh;    
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header{
@@ -22,8 +23,8 @@ header{
     gap:500px;
 }
 
-nav{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.site-logo img{
+    width: 35px;
 }
 
 nav li{
@@ -31,14 +32,18 @@ nav li{
     padding:30px 0;
 }
 
-.logo{
+.site-logo{
     display:flex;
     align-items: center;
+    font-size:25px;
 }
 
-.logo a{
-    font-size:25px;
+.site-logo a{
     color: black;
+}
+
+nav ul{
+    display: flex;
 }
 
 nav a:hover{
@@ -47,10 +52,7 @@ nav a:hover{
     background-color: #6843E6;
 }
 
-nav ul{
-    display: flex;
-}
-.landing-page{
+.hero-section{
     min-height: 85vh;
     margin-top:100px;
     display:flex;
@@ -58,78 +60,107 @@ nav ul{
     align-items: center;
     color: white;
     gap:20px;
+    padding:0 8%;
 }
-h1{
-    font-size: 120px;
+
+.hero-section h1{
+    text-align: center;
+    font-size: 100px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.landing-page>p{
+.hero-section>p{
     font-size: 40px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.landing-page > a{
+.hero-section > a{
     color: white;
     padding: 15px 40px;
     border: 1px solid white;
     margin-top: 55px;
     font-size: 20px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.get-a-quote{
+.hero-section > a:hover{
+    transition: all 0.4s ease;
+    background-color: white;
+    color:#FF2B61
+}
+
+.scroll-next-btn{
+    position: fixed;
+    transform:rotate(-90deg);
+    background-color: white;
+    color:#ff2b61;
+    border-color: #ff2b61;
+    box-shadow: 0 0 5px white;
+    font-size: 50px;
+    border-radius: 50%;
+    top: 90%;
+    right:30px;
+}
+
+.quote-section{
     background-color:#363086;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 h2{
     color:#FF2B61;
     margin-bottom: 20px;
     font-size: 50px;
     font-weight: 700;
 }
-.base{
+
+.quote-container {
     background-color: #ECECEC;
-    width:65%;
-    height:70vh;
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
     position: relative;
-}
-.base-content{
+    flex-wrap: wrap;
     padding: 40px;
+}
+
+.quote-info{
     width:50%;
     font-size: 24px;
-    
 }
-.tag{
-    margin-bottom: 300px;
+
+.quote-tag{
+    margin-bottom: 170px;
 }
-form{
-    width: 35%;
+
+.quote-form{
+    position: absolute;
+    width: 50%;
     background-color: white;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    position: absolute;
-    right:250px;
-    top:115%;
+    gap:15px;
+    left:52%;
+    top:-30px;
 }
-
-input[type=text],input[type=email],input[type=tel],select{
+.quote-contact{
+    margin-bottom: 50px;
+}
+input,select{
     padding:10px;
     width:100%;
     font-size: 18px;
-    resize:vertical;
     border: 1px solid rgb(150, 150, 150);
 }
+
 label{
     font-size: 20px;
 }
+
 input[type=submit]{
+    cursor: pointer;
     margin-left: auto;
     width: 20%;
     border: 1px solid black;
@@ -142,33 +173,53 @@ input[type=submit]{
 footer{
     background-color: black;
     color: white;
-    padding: 40px 400px;
+    padding: 40px 20%;
 }
 
- footer .logo >a{
+footer .site-logo >a{
     color: white;
 }
 
-.footer-columns > ul{
+.footer-column > ul{
     list-style: none;
 }
 
-.footer-content{
+.footer-grid{
     display: grid;
     grid-template-columns: 50% repeat(3,1fr);
+    gap:20px;
 }
 
-.footer-columns{
+.footer-column{
     padding: 0 20px 10px 0;
     line-height: 2;
 }
 
-.content-main{
+.footer-about{
     padding: 0 40px 20px 0;
     line-height: 1.5;
 }
 
-.copyright-tag{
-    padding:20px;
-    padding-left: 0;
+.footer-locations{
+    grid-column: 4;
+}
+
+.location{
+    display: inline;
+}
+
+.location-india::before {
+    content: "🇮🇳 ";
+}
+
+.location-uae::before {
+    content: "🇦🇪 ";
+}
+
+hr{
+    margin:20px 0;
+}
+
+.location-uae{
+    margin-left:20px;
 }
