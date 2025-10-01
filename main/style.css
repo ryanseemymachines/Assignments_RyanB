@@ -3,6 +3,7 @@
     --primary-green:#14b78a;
     --primary-purple:#535da2;
     --primary-black:black;
+    --primary-grey: #e6e6e6b2;
 }
 
 body{
@@ -226,7 +227,7 @@ a{
 /* info section */
 .info{
     min-height: 60vh;
-    background-color:#e6e6e6b2;
+    background-color:var(--primary-grey);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -290,6 +291,7 @@ tr:nth-child(even){
 }
 
 .companies h2{
+    font-size: 40px;
     text-align: center;
     margin-bottom: 70px;
 }
@@ -302,6 +304,33 @@ tr:nth-child(even){
 }
 .company-logos>img{
     max-width: 150px;
+}
+
+/* services section */
+.services{
+    min-height: 80vh;
+    background-color:var(--primary-grey) ;
+}
+
+.card{
+    padding:20px;
+    margin:10px auto;
+    width:400px;
+    height:400px;
+    background-color: var(--primary-white);
+    border-radius: 20px;
+}
+
+.card-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-top>p{
+    padding:10px 25px 10px 15px;
+    background-color: var(--primary-purple);
+    color: var(--primary-white);
+    border-radius: 30px;
 }
 /* Media queries */
 
