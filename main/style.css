@@ -284,7 +284,7 @@ tr:nth-child(even){
 
 /* companies section*/
 .companies{
-    background-color: var(--primary-white));
+    background-color: var(--primary-white);
     min-height:30vh;
     margin:100px 0;
 }
