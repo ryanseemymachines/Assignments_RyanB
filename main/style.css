@@ -319,18 +319,102 @@ tr:nth-child(even){
     height:400px;
     background-color: var(--primary-white);
     border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover{
+    border:2px solid var(--primary-green);
+    box-shadow: 0 0 50px rgb(201, 201, 201);
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
 }
 
 .card-top{
+    z-index: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.card-top>p{
+.card-top>h4{
+    margin: 0;
+    font-size: 35px;
+}
+
+.price{
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.price>p{
+    margin: 0;
     padding:10px 25px 10px 15px;
     background-color: var(--primary-purple);
     color: var(--primary-white);
+}
+
+.card:hover .price>p{
+    background-color: var(--primary-green);
+}
+
+.price-deco-circle{
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-green);
+    border-radius: 50%;
+    position: absolute;
+    top:-30px;
+    right:-20px;
+}
+
+.card:hover .price-deco-circle{
+    background-color: var(--primary-purple);
+}
+.card hr{
+    width: 100%;
+}
+
+.card a{
+    width: fit-content;
+    margin-top: 20px;
+    padding: 10px 25px;
+    color:rgb(110, 110, 110);
+    border: 2px solid rgba(175, 175, 175, 0.589);
     border-radius: 30px;
+}
+
+.card a:hover{
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+    border-color: var(--primary-green);
+    box-shadow: 5px 5px 20px rgb(204, 204, 204);
+}
+.card-logo{
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(175, 175, 175, 0.589);
+    transform: rotate(-35deg);
+    position: absolute;
+    bottom:-10%;
+    right:-10%;
+    border-radius: 15px;
+}
+
+.card:hover .card-logo{
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+}
+
+.fa-globe,.fa-lightbulb,.fa-mobile-screen-button,.fa-google{
+    width: 100%;
+    margin-top: 40px;
+    font-size: 100px;
 }
 /* Media queries */
 
