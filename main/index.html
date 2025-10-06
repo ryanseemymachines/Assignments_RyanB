@@ -50,20 +50,27 @@
     </header>
 
     <main>
-        <!-- <section class="landing-page">
+        <section class="landing-page">
+        <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 40 C150 10 350 80 600 40 C850 0 1050 70 1200 40 L1200 120 L0 120 Z" />
+        </svg>
+
+        <div class="landing-page-content">
             <div class="landing-page-left">
-                <div class="left-section-top">
-                    <img src="happy-bearded-young-man.jpg" class="circle">
-                    <span class="friend">Hello friend!</span>
-                </div>
-                <span class="free-work">I'm available for freelance work.</span>
-                <button class="begin">Let's begin</button>
+            <div class="left-section-top">
+                <img src="happy-bearded-young-man.jpg" class="circle">
+                <span class="friend">Hello friend!</span>
+            </div>
+            <span class="free-work">I'm available for freelance work.</span>
+            <button class="begin">Let's begin</button>
             </div>
             <div class="landing-page-right">
-                <div class="bg-circle"></div>
-                <img src="portrait-happy-excited-man-holding-laptop-computer.png">
+            <div class="bg-circle"></div>
+            <img src="portrait-happy-excited-man-holding-laptop-computer.png">
             </div>
-        </section> -->
+        </div>
+        </section>
+
 
         <section class="about">
             <div class="about-left">
@@ -72,7 +79,7 @@
             <div class="about-right">
                 <div class="about-with-photo">
                     <h2>My Story</h2>
-                    <img src="happy-bearded-young-man.jpg" class="circle">
+                    <img src="happy-bearded-young-man.jpg" alt="a happy man with a beard" class="circle">
                 </div>
                 <h3>a little bit about Joshua</h3>
                 <p>
@@ -84,30 +91,32 @@
         </section>
 
         <section class="info">
-                <table>
-                    <caption>Information</caption>
-                    <tr>
-                        <th>Name</th>
-                        <td>Joshua Morgan</td>
-                    </tr>
-                    <tr>
-                        <th>Birthday</th>
-                        <td>Aug 12, 1986</td>
-                    </tr>
-                    <tr>
-                        <th>Phone</th>
-                        <td>120-240-9600</td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td>hello@josh.design</td>
-                    </tr>
-                </table>
-                <div class="review">
-                    <p><span class="numbers">20+</span><br><span class="tag">Years of Experience</span></p>
-                    <p><span class="numbers">245</span><br><span class="tag">customers</span> </p>
-                    <p><span class="numbers">640</span><br><span class="tag">projects finished</span></p>
-                    <p><span class="numbers">72+</span><br><span class="tag">digital awards</span></p>
+                <div class="info-content">
+                    <table>
+                        <caption>Information</caption>
+                        <tr>
+                            <th>Name</th>
+                            <td>Joshua Morgan</td>
+                        </tr>
+                        <tr>
+                            <th>Birthday</th>
+                            <td>Aug 12, 1986</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>120-240-9600</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>hello@josh.design</td>
+                        </tr>
+                    </table>
+                    <div class="review">
+                        <p><span class="numbers">20+</span><br><span class="tag">Years of Experience</span></p>
+                        <p><span class="numbers">245</span><br><span class="tag">customers</span> </p>
+                        <p><span class="numbers">640</span><br><span class="tag">projects finished</span></p>
+                        <p><span class="numbers">72+</span><br><span class="tag">digital awards</span></p>
+                    </div>
                 </div>
         </section>
 
@@ -258,7 +267,7 @@
                         <h5>START A PROJECT</h5>
                         <p>I'm available for freelance projects</p>
                     </div>
-                    <!-- <hr> -->
+                    <hr>
                     <div class="contact-details-right">
                         <h5>ABOUT</h5>
                         <p>Joshua is a professional web developer. Feel free to get in touch with me.</p>
@@ -270,10 +279,49 @@
                 </div>
                 <div class="contact-form">
                     <form>
+                        <div class="input-group">
+                            <div class="name">
+                                <input type="text" placeholder=" " required>
+                                <label class="input-label">Name</label>
+                            </div>
+                            <div class="email">
+                                <input type="email" placeholder=" " required>
+                                <label class="input-label">Email address</label>
+                            </div>
+                        </div>
+                        <div class="service-grid">
+                            <div class="service-btn" data-service="websites">
+                                <i class="fa-solid fa-globe"></i>
+                                <p>Websites</p>
+                            </div>
+                            <div class="service-btn" data-service="branding">
+                                <i class="fa-regular fa-lightbulb"></i>
+                                <p>Branding</p>
+                            </div>
+                            <div class="service-btn" data-service="ecommerce">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                                <p>Ecommerce</p>
+                            </div>
+                            <div class="service-btn" data-service="seo">
+                                <i class="fa-brands fa-google"></i>
+                                <p>SEO</p>
+                            </div>
+                        </div>
 
+                        <textarea placeholder="Tell me about the project" required></textarea>
+
+                        <button type="submit" class="submit-btn">Send</button>
                     </form>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <footer>
+                <p>Copyright © 2036 <a href="#">First Portfolio</a> Company. All rights reserved.</p>
+                <hr>
+                <p>Design: <a href="#">TemplateMo</a></p>
+            </footer>
         </section>
     </main>
 </body>
