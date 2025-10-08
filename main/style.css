@@ -205,22 +205,22 @@ main{
     position: relative;
 }
 
-.bg-circle {
-  position: absolute;
-  width: clamp(200px, 30vw, 450px);
-  height: clamp(200px, 30vw, 450px);
-  background-color: var(--primary-white);
-  border-radius: 50%;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.bg-circle{
+    position: absolute;
+    width: clamp(200px, 30vw, 450px);
+    height: clamp(200px, 30vw, 450px);
+    background-color: var(--primary-white);
+    border-radius: 50%;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.landing-page-right img {
-  position: relative;
-  max-width: 100%;
-  height: auto;
+.landing-page-right img{
+    position: relative;
+    max-width: 100%;
+    height: auto;
 }
 
 /* About page */
@@ -832,6 +832,7 @@ input:not(:placeholder-shown) + .input-label{
 }
 
 .service-btn{
+    min-width:50px;
     padding:20px;
     background: white;
     border: 2px solid #e8e8e8;
@@ -841,7 +842,6 @@ input:not(:placeholder-shown) + .input-label{
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 12px;
 }
 
@@ -858,7 +858,7 @@ input:not(:placeholder-shown) + .input-label{
 .service-grid .fa-mobile-screen-button,
 .service-grid .fa-google{
     margin:0;
-    font-size:30px;
+    font-size:25px;
     color:var(--primary-green);
 }
 
