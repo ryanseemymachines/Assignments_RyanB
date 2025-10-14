@@ -28,7 +28,7 @@ function generatePassword(length, includeLower, includeUpper, includeSymbols,inc
     allowedchars+=includeSymbols?symbols:"";
 
     if(length<=0){
-        return("Passwor length must be at least 1");
+        return("Password length must be at least 1");
     }
     if(allowedchars.length===0)
     {
