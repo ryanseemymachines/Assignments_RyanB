@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+h1{
+    color: rgb(147, 64, 147);
+    font-size: 5rem;
+}
+
+.container{
+    border: 3px solid rgb(99, 19, 95);
+    box-shadow: 0 0 10px rgb(248, 7, 248);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+    padding:20px;
+    font-size:3.5em ;
+}
+
+button{
+    border:none;
+    color: white;
+    font-size: 0.5em;
+    padding:5px 10px;
+    border-radius: 10px;
+}
+
+#startBtn{
+    background-color: rgb(2, 80, 2);
+}
+
+#stopBtn{
+    background-color: rgb(141, 3, 3);
+}
+
+#resetBtn{
+    background-color: rgb(1, 1, 138);
+}

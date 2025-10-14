@@ -1,0 +1,16 @@
+label{
+    font-size: 2em;
+}
+
+#myText{
+    margin:10px 0;
+    font-size: 1.5em;
+}
+
+#mySubmit{
+    font-size: 1.3em;
+}
+
+#result{
+    font-size: 1.5em;
+}
