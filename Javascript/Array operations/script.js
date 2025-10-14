@@ -89,6 +89,10 @@ console.log(arr);
 const flatArray=newArray.flat(2);
 console.log(flatArray);
 
+//flatmap
+let flatmapArray = slicedArray.flatMap(num => [num,num**2]);
+console.log(flatmapArray);
+
 //splice function
 let splicedArray=arr.splice(2,2,12,11);
 console.log(`The spliced array is: `+splicedArray);
