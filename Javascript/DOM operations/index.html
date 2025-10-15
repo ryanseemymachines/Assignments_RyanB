@@ -1,0 +1,115 @@
+<!--
+ 
+1️⃣ Selecting Elements
+
+Task Steps:
+
+Create an HTML page containing:
+
+A <div> with an id of container.
+
+A few <p> elements inside the container (each with a unique class name or text).
+
+A button with an id of actionBtn.
+
+In your JavaScript file:
+
+Use getElementById() to select the container and log it to the console.
+
+Use querySelector() to select the first <p> element inside the container and log it.
+
+Use querySelectorAll() to select all <p> elements and loop through them to print their text content.
+
+2️⃣ Modifying Elements
+
+Task Steps:
+
+Select one of the <p> elements and:
+
+Change its text using innerHTML.
+
+Change another paragraph’s text using textContent.
+
+Add a CSS class (like "highlight") using classList.add().
+
+Remove a class using classList.remove().
+
+Add an attribute (like title="Information paragraph") using setAttribute().
+
+Remove an attribute (like title) using removeAttribute().
+
+Print messages in the console to confirm each operation.
+
+3️⃣ Creating and Appending Elements
+
+Task Steps:
+
+Use document.createElement() to create a new <p> element.
+
+Set its text using either innerHTML or textContent.
+
+Append the new paragraph inside the container using appendChild().
+
+Create another new element (like a <span>) and insert it before the newly added paragraph using insertBefore().
+
+Print messages confirming the newly created and inserted elements.
+
+4️⃣ Event Handling
+
+Task Steps:
+
+Select the button with id actionBtn.
+
+Use addEventListener() to attach a click event that:
+
+Changes the background color of the container.
+
+Displays a message in the console like "Button clicked!".
+
+Add another event listener (like mouseover) that changes the text color of all <p> elements.
+
+Demonstrate removeEventListener() by removing one of the event listeners after it runs once (e.g., after a second click).
+
+5️⃣ Traversing the DOM
+
+Task Steps:
+
+Select the container and explore its structure:
+
+Print its parentNode to the console.
+
+Print its childNodes, firstChild, and lastChild.
+
+Use nextSibling and previousSibling on one of the paragraphs to move through the DOM tree.
+
+Observe the differences between nodes (like text nodes vs element nodes) and log them to the console.
+
+6️⃣ Bonus Challenge (Optional)
+
+Combine everything above:
+
+When the user clicks the button:
+
+A new paragraph should be created and appended to the container.
+
+The new paragraph should have a specific class added.
+
+The button should temporarily change its text or style.
+
+Log the updated DOM structure to verify changes.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DOM operations</title>
+</head>
+<body>
+
+    <script src="script.js"></script>
+</body>
+</html>
