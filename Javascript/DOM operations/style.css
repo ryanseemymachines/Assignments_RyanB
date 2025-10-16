@@ -1,0 +1,19 @@
+.highlight{
+    background-color: rgb(255, 255, 136);
+}
+
+.highlight2{
+    background-color: rgb(255, 129, 129);
+}
+
+#highlight3{
+    background-color: rgb(138, 255, 136);
+}
+
+#actionBtn{
+    border:none;
+    background-color: green;
+    color:yellow;
+    padding: 20px;
+    font-size: 20px;
+}

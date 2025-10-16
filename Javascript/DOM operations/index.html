@@ -38,8 +38,6 @@ Add an attribute (like title="Information paragraph") using setAttribute().
 
 Remove an attribute (like title) using removeAttribute().
 
-Print messages in the console to confirm each operation.
-
 3️⃣ Creating and Appending Elements
 
 Task Steps:
@@ -51,8 +49,6 @@ Set its text using either innerHTML or textContent.
 Append the new paragraph inside the container using appendChild().
 
 Create another new element (like a <span>) and insert it before the newly added paragraph using insertBefore().
-
-Print messages confirming the newly created and inserted elements.
 
 4️⃣ Event Handling
 
@@ -109,7 +105,25 @@ Log the updated DOM structure to verify changes.
     <title>DOM operations</title>
 </head>
 <body>
+    <div id="container">
+        <p id="intro">
+        Web development is the process of building and maintaining websites. It involves coding, design, and performance optimization to ensure a great user experience.
+        </p>
 
+        <p id="frontend">
+        Front-end development focuses on the visual and interactive parts of a website. Technologies like HTML, CSS, and JavaScript bring the design to life.
+        </p>
+
+        <p id="backend">
+        Back-end development handles the server-side logic, databases, and APIs that power a website. It ensures that everything runs smoothly behind the scenes.
+        </p>
+
+        <p id="conclusion">
+        Together, front-end and back-end development form the foundation of modern web applications, enabling seamless digital experiences.
+        </p>
+
+        <button type="button" id="actionBtn">Button</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
