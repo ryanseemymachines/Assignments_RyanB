@@ -11,6 +11,7 @@ console.log(document.querySelector("p").textContent);
 
 
 //Use querySelectorAll() to select all <p> elements and loop through them to print their text content.
+
 const paragraphs=document.querySelectorAll("p");
 
 console.log(paragraphs);
@@ -41,6 +42,7 @@ removeClass.setAttribute("style","color:red");
 removeClass.removeAttribute("style");
 
 //create and appending elements
+
 const newelement=document.createElement("p");
 newelement.textContent="The IT field is rapidly evolving, offering diverse career opportunities in software, networking, and cybersecurity. Continuous learning and adaptability are key to staying relevant in this dynamic industry.";
 newelement.id="highlight3";
@@ -78,5 +80,3 @@ mouseoverp.forEach((elm) => {
         event.target.style.color="unset";
     });
 });
-
-
