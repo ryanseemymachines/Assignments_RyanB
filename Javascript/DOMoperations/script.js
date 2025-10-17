@@ -82,3 +82,20 @@ mouseoverp.forEach((elm) => {
         event.target.style.color="unset";
     });
 });
+
+//DOM navigation
+
+const container=document.getElementById("container");
+console.log(container.parentNode);
+console.log(container.parentElement);
+console.log(container.children);
+console.log(container.childElementCount);
+console.log(container.childNodes);
+console.log(container.firstChild);
+console.log(container.firstElementChild);
+console.log(container.lastChild);
+console.log(container.lastElementChild);
+console.log(container.previousSibling);
+console.log(container.previousElementSibling);
+console.log(container.nextSibling);
+console.log(container.nextElementSibling);
