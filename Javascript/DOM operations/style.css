@@ -1,12 +1,15 @@
 .highlight{
+    display: inline;
     background-color: rgb(255, 255, 136);
 }
 
 .highlight2{
+    display: inline;
     background-color: rgb(255, 129, 129);
 }
 
 #highlight3{
+    display: block;
     background-color: rgb(138, 255, 136);
 }
 

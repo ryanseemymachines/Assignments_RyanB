@@ -1,3 +1,4 @@
+
 //using getElementById
 console.log(document.getElementById("container"));
 console.log(document.getElementById("container").textContent);
@@ -63,6 +64,7 @@ function changecolor(event){
     event.target.style.color="white";
     event.target.textContent="Button clicked!!";
 }
+// button.removeEventListener("click",changecolor);
 
 let mouseoverp=document.querySelectorAll("p");
 mouseoverp.forEach((elm) => {
