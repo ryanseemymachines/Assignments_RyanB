@@ -1,0 +1,23 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+label{
+    font-size: 1.3em;
+}
+
+#num{
+    font-size: 1.2em;
+    padding:10px;
+}
+
+#oddevenStatus,#factResult{
+    font-size: 1.3em;
+    font-weight:bold;
+}
+
+#hoverResult{
+    font-size: 1.3em;
+}
