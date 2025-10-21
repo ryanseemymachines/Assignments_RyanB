@@ -1,0 +1,590 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #e9e9e9;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* MOBILE-FIRST CSS - Default styles for mobile */
+
+/* navbar - mobile */
+.logo a, li a{
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    font-size: 20px;
+    color: white;
+}
+
+header{
+    width: 100%;
+    background: linear-gradient(rgb(125, 106, 231), rgba(184, 106, 177, 0.801));
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    color: white;
+    text-shadow: 0 0 3px #000000;
+    position: relative;
+}
+
+.header-title{
+    text-align: center;
+    padding-top: 20px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+    padding: 15px;
+}
+
+.logo a{
+    font-size: 22px;
+}
+
+.logo a:hover{
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgb(29, 29, 29);
+}
+
+ul{
+    list-style: none;
+}
+
+.check{
+    display: none;
+}
+
+.toggle-btn{
+    padding: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.nav-bar-items a:hover, .mobile-nav a:hover{
+    background-color: rgba(223, 223, 223, 0.349);
+    box-shadow: 0 0 5px rgb(29, 29, 29);
+    border-radius: 8px;
+}
+
+.nav-bar-items{
+    display: none;
+}
+
+.mobile-nav{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: all 0.4s ease;
+}
+
+.mobile-nav li{
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav a{
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid #464646;
+    text-shadow: none;
+    color: black;
+}
+
+.check:checked ~ .mobile-nav{
+    max-height: 500px;
+    opacity: 1;
+    box-shadow: 0 0 5px black;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* main section - mobile */
+main{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar visible on mobile - at top */
+aside{
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    order: -1;
+}
+
+aside h3{
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+aside ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside li{
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+aside li:hover{
+    background-color: rgba(137, 43, 226, 0.415);
+}
+
+aside a{
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside a > i{
+    margin-right: 10px;
+}
+
+.content-home{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    order: 1;
+}
+
+.content-block{
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.content-block p, .content-block h2{
+    padding: 10px;
+}
+
+.content-block h2{
+    color: rgb(125, 106, 231);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.content-block h2 i{
+    font-size: 1.2em;
+}
+
+.content-block hr{
+    margin: 10px 0;
+    border: none;
+    border-top: 2px solid #e0e0e0;
+}
+
+/* Services carousel - mobile */
+.content-services{
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 1;
+}
+
+.carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 20px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.service-card{
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+.content-services > i{
+    display: none;
+}
+
+/* Carousel dots/buttons */
+.slider-controls{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.slider-btn{
+    background: linear-gradient(rgb(125, 106, 231), rgba(184, 106, 177, 0.801));
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.slider-btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(125, 106, 231, 0.4);
+}
+
+.slider-btn:active{
+    transform: scale(0.98);
+}
+
+.carousel-dots{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.carousel-dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active{
+    background: linear-gradient(rgb(125, 106, 231), rgba(184, 106, 177, 0.801));
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* Address accordion - mobile */
+.content-address{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    order: 1;
+}
+
+.address-title{
+    text-align: center;
+    color: rgb(125, 106, 231);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.accordion-heading{
+    background: linear-gradient(to right, rgb(125, 106, 231), rgba(184, 106, 177, 0.801));
+    color: white;
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accordion-heading:hover{
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(125, 106, 231, 0.3);
+}
+
+.accordion-heading h3{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+}
+
+.accordion-heading i{
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.accordion-heading i.rotate{
+    transition: all 0.4s ease;
+    transform: rotate(180deg);
+}
+
+.accordion-content{
+    display: none;
+    width: 100%;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1.8;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-content p{
+    margin-bottom: 12px;
+}
+
+.accordion-content strong{
+    color: rgb(125, 106, 231);
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.accordion-content i{
+    margin-right: 5px;
+}
+
+/* footer - mobile */
+footer{
+    background-color: rgb(3, 55, 85);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr{
+    width: 100%;
+}
+
+.footer-items{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.about, .services, .contact{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.about > p, .services > p, .contact > p{
+    padding: 20px;
+    line-height: 1.8;
+}
+
+.copyright{
+    text-align: center;
+    padding: 30px;
+}
+
+/* MEDIA QUERIES - Tablet and Desktop styles */
+
+/* Tablet - 700px and above */
+@media (min-width: 700px){
+    .toggle-btn{
+        display: none;
+    }
+
+    .mobile-nav{
+        display: none;
+    }
+
+    .nav-bar-items{
+        display: flex;
+    }
+
+    .carousel-dots{
+        gap: 12px;
+    }
+
+    .carousel-dot{
+        width: 14px;
+        height: 14px;
+    }
+
+    .slider-btn{
+        padding: 14px 25px;
+        font-size: 17px;
+    }
+
+    .address-title{
+        font-size: 2em;
+    }
+}
+
+/* Desktop - 1000px and above */
+@media (min-width: 1000px){
+    main{
+        margin: 0;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        min-height: 80vh;
+    }
+
+    aside{
+        padding: 25px;
+        margin: 20px;
+        border-radius: 20px;
+        order: 0;
+    }
+    
+    aside h3{
+        font-size: 2em;
+    }
+
+    aside ul{
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    aside li{
+        padding: 15px;
+    }
+
+    aside a{
+        justify-content: flex-start;
+    }
+
+    .content-home, .content-services, .content-address{
+        order: 0;
+    }
+
+    .content-home{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px;
+    }
+    
+    .content-block:hover{
+        transition: all 0.5s ease;
+        transform: scale(1.02);
+    }
+
+    .content-services{
+        position: relative;
+        margin: 20px;
+        padding: 0;
+    }
+
+    .carousel{
+        margin: auto;
+        width: 60%;
+        overflow: hidden;
+    }
+
+    .content-services > i{
+        display: block;
+        background-color: rgb(154, 0, 220);
+        color: white;
+        text-shadow: 0 0 5px black;
+        width: auto;
+        height: fit-content;
+        font-size: 25px;
+        padding: 20px;
+        text-align: center;
+        position: absolute;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .content-services > i:hover{
+        background-color: rgb(184, 0, 255);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .fa-less-than{
+        top: 50%;
+        left: 0;
+    }
+
+    .fa-greater-than{
+        top: 50%;
+        right: 0;
+    }
+
+    .service-card{
+        padding: 30px;
+        height: fit-content;
+    }
+
+    .content-address{
+        background-color: white;
+        margin: 20px;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .accordion-heading{
+        width: 50%;
+        font-size: 20px;
+    }
+
+    .accordion-heading h3{
+        font-size: 1.2em;
+    }
+
+    .accordion-content{
+        width: 50%;
+        font-size: 18px;
+        padding: 25px;
+    }
+
+    .footer-items{
+        width: 70%;
+        flex-direction: row;
+        gap: 25px;
+        justify-content: space-around;
+    }
+
+    .about > p, .services > p, .contact > p{
+        padding: 20px;
+    }
+
+    .about, .services, .contact{
+        margin: 50px 0;
+    }
+}
