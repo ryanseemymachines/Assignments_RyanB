@@ -336,12 +336,12 @@ aside a > i{
     font-size: 1.1em;
 }
 
-.accordion-heading i{
+.accordion-heading .fa-caret-down{
     cursor: pointer;
     font-size: 1.2em;transition: all 0.4s ease;
 }
 
-.accordion-heading i.rotate{
+.accordion-heading .fa-caret-down.rotate{
     transform: rotate(180deg);
 }
 
