@@ -115,7 +115,15 @@ const colorPalettes = [
         "rgb(65, 120, 230)",
         "rgb(45, 95, 190)",
         "rgb(20, 60, 130)"
+    ],
+    [
+        "rgb(245, 235, 255)",
+        "rgb(210, 160, 255)",
+        "rgb(145, 70, 230)",
+        "rgb(115, 55, 190)",
+        "rgb(70, 35, 130)"
     ]
+
 ];
 
 const Btncolor = document.querySelectorAll(".color-btn");

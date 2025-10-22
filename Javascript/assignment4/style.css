@@ -110,6 +110,9 @@ ul{
 #color-btn5{
     background-color: rgb(65, 120, 230);
 }
+#color-btn6{
+    background-color: rgb(145, 70, 230);
+}
 
 #displayFullDate,#displayDate,#DisplayObject{
     font-size: x-large;
