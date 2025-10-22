@@ -1,0 +1,175 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+    background:linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background-repeat: none;
+}
+
+.box1{
+    position: absolute;
+    z-index: -1;
+    transform: rotate(30deg);
+    left:80%;
+    top:30%;
+    background-color: rgba(0, 0, 0, 0.084);
+    width:50%;
+    height:50vh;
+}
+
+.box2{
+    position: absolute;
+    z-index: -1;
+    transform: rotate(30deg);
+    right:80%;
+    top:20%;
+    background-color: rgba(0, 0, 0, 0.084);
+    width:50%;
+    height:50vh;
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#registration{
+    background-color: white;
+    width:60%;
+    height:500px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.reg-left,.signin-right{
+    background-color: rgb(245, 236, 202);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.reg-left>h1,.signin-right>h1{
+    font-size: 2.5em;
+}
+
+.reg-left>p,.signin-right>p{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.reg-left>a,.signin-right>a{
+    text-decoration: none;
+    font-size: 1.4em;
+    background-color: orangered;
+    color:white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+.reg-left>a:hover,.signin-right>a:hover{
+    cursor: pointer;
+    background-color: white;
+    color: orangered;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgb(124, 124, 124);
+    transform: scale(1.01);
+}
+
+.reg-left>a:active,.signin-right>a:active{
+    transform: scale(0.96);
+}
+
+.reg-right,.signin-left{
+    padding:30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.reg-right form,.signin-left form{
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.reg-right h2,.signin-left h2{
+    font-size: 2.3em;
+}
+
+.reg-right input,.signin-left input{
+    font-size: 1.1em;
+    width:100%;
+    padding: 15px;
+    outline:none;
+    border:none;
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+}
+
+.reg-right input:focus,.signin-left input:focus{
+    outline: 2px solid grey;
+}
+
+.reg-right button,.signin-left button{
+    width:50%;
+    border:none;
+    text-decoration: none;
+    font-size: 1.4em;
+    background-color: orangered;
+    color:white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+.reg-right button:hover,.signin-left button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: orangered;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgb(124, 124, 124);
+    transform: scale(1.01);
+}
+
+.reg-right button:active,.signin-left button:active{
+    transform: scale(0.96);
+}
+
+#sign-in{
+    background-color: white;
+    width:60%;
+    height:500px;
+    display:none;
+    grid-template-columns: 1fr 1fr;
+}
+
+#sign-in.show{
+    display: grid;
+}
+
+#sign-in.hide{
+    display: none;
+}
+
+#registration.clicked{
+    display: none;
+}
+
+#registration.display{
+    display:grid;
+}
