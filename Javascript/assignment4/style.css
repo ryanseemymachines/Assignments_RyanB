@@ -1,3 +1,35 @@
+:root{
+    --color-lighter: rgb(255, 235, 235);
+    --color-light: rgb(255, 150, 150);
+    --color-main: rgb(199, 53, 53);
+    --color-dark: rgb(180, 59, 59);
+    --color-darker: rgb(120, 30, 30);
+}
+
+*{
+    margin:0;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin:20px 0;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    padding: 20px;
+    background-color: var(--color-lighter);
+    border-radius: 8px;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     appearance: none;
@@ -9,8 +41,32 @@ label{
 }
 
 #num{
+    border-style: solid;
+    border-color:var(--color-light);
+    text-align: center;
+    width:50%;
     font-size: 1.2em;
     padding:10px;
+}
+
+input[type="number"]:focus{
+    outline:none;
+    background-color: var(--color-lighter);
+    box-shadow:0 0 10px var(--color-darker) ;
+}
+
+#fact,#backgroundChange{
+    color:var(--color-lighter);
+    font-size: 20px;
+    padding: 15px;
+    border:none;
+    border-radius: 15px;
+    background-color: var(--color-main);
+}
+
+#fact:hover,#backgroundChange:hover{
+    background-color: var(--color-light);
+    color:var(--color-darker)
 }
 
 #oddevenStatus,#factResult{
@@ -19,5 +75,59 @@ label{
 }
 
 #hoverResult{
-    font-size: 1.3em;
+    font-size: 1.5em;
+}
+
+ul{
+    padding: 0;
+    display: flex;
+    gap:10px;
+    list-style-type: none;
+}
+
+#color-heading{
+    font-size: 1.5em;
+}
+
+.color-btn{
+    padding: 15px;
+}
+
+#color-btn1{
+    background-color: rgb(199, 53, 53);
+}
+#color-btn2{
+    background-color: rgb(230, 120, 30);
+}
+#color-btn3{
+    background-color: rgb(230, 190, 40);
+}
+#color-btn4{
+    background-color: rgb(65, 175, 85);
+}
+#color-btn5{
+    background-color: rgb(65, 120, 230);
+}
+
+#displayFullDate,#displayDate,#DisplayObject{
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+}
+
+#displayDate{
+    font-style: italic;
+}
+
+#displayTime{
+    background-color:var(--color-darker);
+    color:white;
+    padding:20px;
+    font-size: 30px;
+    border-radius: 20px;
+}
+
+#displayTime:hover{
+    background-color: var(--color-light);
+    color: black;
 }

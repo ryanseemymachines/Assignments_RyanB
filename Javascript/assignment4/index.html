@@ -8,18 +8,38 @@
 </head>
 <body>
     
-    <!-- input field for a number -->
-     <label>Enter a number: </label>
-     <input type="number" id="num">
-     <button type="button" id="fact">Click here to find factorial</button>
+    
+     <div class="container">
+        <!-- input field for a number -->
+        <label>Enter a number: </label>
+        <input type="number" id="num">
+        <button type="button" id="fact">Click here to find factorial</button>
 
-     <p id="oddevenStatus"></p>
-     <p id="factResult"></p>
-     <p id="hoverResult"></p>
+        <p id="oddevenStatus">Check if the number is even or odd</p>
+        <p id="factResult">Also, find the factorial of the number</p>
+        <p id="hoverResult"></p>
+        
+        <!-- color change -->
 
-     <p id="displayFullDate">Today's date is: </p>
-     <p id="displayDate"></p>
-     <p id="displayTime"></p>
+        <p id="color-heading"> My array of favorite colors are:</p>
+        <p id="ColorArray"></p>
+
+        <button type="button" id="backgroundChange">Click here to select a random color from the above table</button>
+
+        <p id="color-heading">Click any color below to change the theme</p>
+        <ul>
+            <li><button id="color-btn1" class="color-btn" type="button"></button></li>
+            <li><button id="color-btn2" class="color-btn" type="button"></button></li>
+            <li><button id="color-btn3" class="color-btn" type="button"></button></li>
+            <li><button id="color-btn4" class="color-btn" type="button"></button></li>
+            <li><button id="color-btn5" class="color-btn" type="button"></button></li>
+        </ul>
+        <p id="displayFullDate">Today's date is: </p>
+        <p id="displayDate"></p>
+        <p id="displayTime"></p>
+
+        <p id="DisplayObject"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
