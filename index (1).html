@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style (1).css">
+    <title>Registration</title>
+    <style>
+        
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+    background:linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background-repeat: none;
+}
+
+.box1{
+    position: absolute;
+    z-index: -1;
+    transform: rotate(30deg);
+    left:80%;
+    top:30%;
+    background-color: rgba(0, 0, 0, 0.084);
+    width:50%;
+    height:50vh;
+}
+
+.box2{
+    position: absolute;
+    z-index: -1;
+    transform: rotate(30deg);
+    right:80%;
+    top:20%;
+    background-color: rgba(0, 0, 0, 0.084);
+    width:50%;
+    height:50vh;
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#registration{
+    background-color: white;
+    width:60%;
+    height:500px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.reg-left,.signin-right{
+    background-color: rgb(245, 236, 202);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.reg-left>h1,.signin-right>h1{
+    font-size: 2.5em;
+}
+
+.reg-left>p,.signin-right>p{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.reg-left>a,.signin-right>a{
+    text-decoration: none;
+    font-size: 1.4em;
+    background-color: orangered;
+    color:white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+.reg-left>a:hover,.signin-right>a:hover{
+    cursor: pointer;
+    background-color: white;
+    color: orangered;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgb(124, 124, 124);
+    transform: scale(1.01);
+}
+
+.reg-left>a:active,.signin-right>a:active{
+    transform: scale(0.96);
+}
+
+.reg-right,.signin-left{
+    padding:30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+
+.reg-right form,.signin-left form{
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.reg-right h2,.signin-left h2{
+    font-size: 2.3em;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+}
+
+.reg-right input,.signin-left input{
+    font-size: 1.1em;
+    width:100%;
+    padding: 15px;
+    outline:none;
+    border:none;
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+}
+
+.reg-right input:focus,.signin-left input:focus{
+    outline: 2px solid grey;
+}
+
+.reg-right input.error,.signin-left input.error{
+    outline: 2px solid #ff4444;
+}
+
+.reg-right input.success,.signin-left input.success{
+    outline: 2px solid #4CAF50;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    color: #4CAF50;
+    font-size: 1em;
+    padding: 10px;
+    background-color: #d4edda;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.reg-right button,.signin-left button{
+    width:50%;
+    border:none;
+    text-decoration: none;
+    font-size: 1.4em;
+    background-color: orangered;
+    color:white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+.reg-right button:hover,.signin-left button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: orangered;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgb(124, 124, 124);
+    transform: scale(1.01);
+}
+
+.reg-right button:active,.signin-left button:active{
+    transform: scale(0.96);
+}
+
+#sign-in{
+    background-color: white;
+    width:60%;
+    height:500px;
+    display:none;
+    grid-template-columns: 1fr 1fr;
+}
+
+#sign-in.show{
+    display: grid;
+}
+
+#sign-in.hide{
+    display: none;
+}
+
+#registration.clicked{
+    display: none;
+}
+
+#registration.display{
+    display:grid;
+}
+    </style>
+</head>
+<body>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <main>
+        <section id="registration">
+            <div class="reg-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please sign in with your personal info</p>
+                <a id="signinBtn">Sign In</a>
+            </div>
+
+            <div class="reg-right">
+                <h2>Create Account</h2>
+                <form id="registrationForm" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="regName" placeholder="Name" required minlength="3">
+                        <div class="error-message" id="nameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="regEmail" placeholder="Email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="regPassword" placeholder="Password" required minlength="6">
+                        <div class="error-message" id="passwordError"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="regConfirmPassword" placeholder="Confirm Password" required>
+                        <div class="error-message" id="confirmPasswordError"></div>
+                    </div>
+                    <div class="success-message" id="regSuccessMessage"></div>
+                    <button type="submit" id="reg-submit">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="sign-in">
+            <div class="signin-left">
+                <h2>Sign In</h2>
+                <form id="signinForm" novalidate>
+                    <div class="form-group">
+                        <input type="email" id="signinEmail" placeholder="Email" required>
+                        <div class="error-message" id="signinEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signinPassword" placeholder="Password" required>
+                        <div class="error-message" id="signinPasswordError"></div>
+                    </div>
+                    <div class="success-message" id="signinSuccessMessage"></div>
+                    <button type="submit" id="signin-submit">Submit</button>
+                </form>
+            </div>
+            <div class="signin-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start your journey with us</p>
+                <a id="signupBtn">Sign Up</a>
+            </div>
+        </section>
+
+    </main>
+    <script>
+        
+// Switching between sign in and sign up
+const SignInBtn = document.getElementById("signinBtn");
+const signIn = SignInBtn.parentElement.parentElement.nextElementSibling;
+const reg = SignInBtn.parentElement.parentElement;
+const SignUpBtn = document.getElementById("signupBtn");
+const signUp = SignUpBtn.parentElement.parentElement.previousElementSibling;
+const signin = SignUpBtn.parentElement.parentElement;
+
+SignInBtn.addEventListener("click", () => {
+    reg.classList.add("clicked");
+    signIn.classList.add("show");
+    signin.classList.remove("hide");
+    signUp.classList.remove("display");
+    clearForm('registrationForm');
+});
+
+SignUpBtn.addEventListener("click", () => {
+    signin.classList.add("hide");
+    signUp.classList.add("display");
+    reg.classList.remove("clicked");
+    signIn.classList.remove("show");
+    clearForm('signinForm');
+});
+
+// Form validation functions
+function showError(input, message) {
+    const formGroup = input.parentElement;
+    const errorDiv = formGroup.querySelector('.error-message');
+    input.classList.add('error');
+    input.classList.remove('success');
+    errorDiv.textContent = message;
+    errorDiv.classList.add('show');
+}
+
+function showSuccess(input) {
+    const formGroup = input.parentElement;
+    const errorDiv = formGroup.querySelector('.error-message');
+    input.classList.add('success');
+    input.classList.remove('error');
+    errorDiv.classList.remove('show');
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function clearForm(formId) {
+    const form = document.getElementById(formId);
+    form.reset();
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.classList.remove('error', 'success');
+    });
+    const errors = form.querySelectorAll('.error-message');
+    errors.forEach(error => error.classList.remove('show'));
+    const success = form.querySelector('.success-message');
+    if (success) success.classList.remove('show');
+}
+
+// Registration form validation
+const registrationForm = document.getElementById('registrationForm');
+const regName = document.getElementById('regName');
+const regEmail = document.getElementById('regEmail');
+const regPassword = document.getElementById('regPassword');
+const regConfirmPassword = document.getElementById('regConfirmPassword');
+const regSuccessMessage = document.getElementById('regSuccessMessage');
+
+registrationForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    // Validate name
+    if (regName.value.trim() === '') {
+        showError(regName, 'Name is required');
+        isValid = false;
+    } else if (regName.value.trim().length < 3) {
+        showError(regName, 'Name must be at least 3 characters');
+        isValid = false;
+    } else {
+        showSuccess(regName);
+    }
+
+    // Validate email
+    if (regEmail.value.trim() === '') {
+        showError(regEmail, 'Email is required');
+        isValid = false;
+    } else if (!validateEmail(regEmail.value.trim())) {
+        showError(regEmail, 'Please enter a valid email');
+        isValid = false;
+    } else {
+        showSuccess(regEmail);
+    }
+
+    // Validate password
+    if (regPassword.value === '') {
+        showError(regPassword, 'Password is required');
+        isValid = false;
+    } else if (regPassword.value.length < 6) {
+        showError(regPassword, 'Password must be at least 6 characters');
+        isValid = false;
+    } else {
+        showSuccess(regPassword);
+    }
+
+    // Validate confirm password
+    if (regConfirmPassword.value === '') {
+        showError(regConfirmPassword, 'Please confirm your password');
+        isValid = false;
+    } else if (regPassword.value !== regConfirmPassword.value) {
+        showError(regConfirmPassword, 'Passwords do not match');
+        isValid = false;
+    } else {
+        showSuccess(regConfirmPassword);
+    }
+
+    if (isValid) {
+        regSuccessMessage.textContent = 'Registration successful! Welcome aboard!';
+        regSuccessMessage.classList.add('show');
+        setTimeout(() => {
+            clearForm('registrationForm');
+        }, 3000);
+    } else {
+        regSuccessMessage.classList.remove('show');
+    }
+});
+
+// Sign in form validation
+const signinForm = document.getElementById('signinForm');
+const signinEmail = document.getElementById('signinEmail');
+const signinPassword = document.getElementById('signinPassword');
+const signinSuccessMessage = document.getElementById('signinSuccessMessage');
+
+signinForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    // Validate email
+    if (signinEmail.value.trim() === '') {
+        showError(signinEmail, 'Email is required');
+        isValid = false;
+    } else if (!validateEmail(signinEmail.value.trim())) {
+        showError(signinEmail, 'Please enter a valid email');
+        isValid = false;
+    } else {
+        showSuccess(signinEmail);
+    }
+
+    // Validate password
+    if (signinPassword.value === '') {
+        showError(signinPassword, 'Password is required');
+        isValid = false;
+    } else {
+        showSuccess(signinPassword);
+    }
+
+    if (isValid) {
+        signinSuccessMessage.textContent = 'Sign in successful! Welcome back!';
+        signinSuccessMessage.classList.add('show');
+        setTimeout(() => {
+            clearForm('signinForm');
+        }, 3000);
+    } else {
+        signinSuccessMessage.classList.remove('show');
+    }
+});
+
+
+
+// 
+// On successful registration
+// if (isValid) {
+//   const user = {
+//     name: regName.value.trim(),
+//     email: regEmail.value.trim(),
+//     password: regPassword.value // 
+//   };
+//   localStorage.setItem('user', JSON.stringify(user));
+//   regSuccessMessage.textContent = 'Registration successful! Welcome aboard!';
+// }
+
+// // On sign in
+// if (isValid) {
+//   const storedUser = JSON.parse(localStorage.getItem('user'));
+//   if (storedUser &&
+//       storedUser.email === signinEmail.value.trim() &&
+//       storedUser.password === signinPassword.value) {
+//     signinSuccessMessage.textContent = 'Sign in successful! Welcome back!';
+//   } else {
+//     showError(signinEmail, 'Invalid email or password');
+//   }
+// }
+
+// Real-time validation
+// regName.addEventListener('blur', () => {
+//     if (regName.value.trim() === '') {
+//         showError(regName, 'Name is required');
+//     } else if (regName.value.trim().length < 3) {
+//         showError(regName, 'Name must be at least 3 characters');
+//     } else {
+//         showSuccess(regName);
+//     }
+// });
+
+// regEmail.addEventListener('blur', () => {
+//     if (regEmail.value.trim() === '') {
+//         showError(regEmail, 'Email is required');
+//     } else if (!validateEmail(regEmail.value.trim())) {
+//         showError(regEmail, 'Please enter a valid email');
+//     } else {
+//         showSuccess(regEmail);
+//     }
+// });
+
+// regPassword.addEventListener('blur', () => {
+//     if (regPassword.value === '') {
+//         showError(regPassword, 'Password is required');
+//     } else if (regPassword.value.length < 6) {
+//         showError(regPassword, 'Password must be at least 6 characters');
+//     } else {
+//         showSuccess(regPassword);
+//     }
+// });
+
+// regConfirmPassword.addEventListener('blur', () => {
+//     if (regConfirmPassword.value === '') {
+//         showError(regConfirmPassword, 'Please confirm your password');
+//     } else if (regPassword.value !== regConfirmPassword.value) {
+//         showError(regConfirmPassword, 'Passwords do not match');
+//     } else {
+//         showSuccess(regConfirmPassword);
+//     }
+// });
+
+// signinEmail.addEventListener('blur', () => {
+//     if (signinEmail.value.trim() === '') {
+//         showError(signinEmail, 'Email is required');
+//     } else if (!validateEmail(signinEmail.value.trim())) {
+//         showError(signinEmail, 'Please enter a valid email');
+//     } else {
+//         showSuccess(signinEmail);
+//     }
+// });
+
+// signinPassword.addEventListener('blur', () => {
+//     if (signinPassword.value === '') {
+//         showError(signinPassword, 'Password is required');
+//     } else {
+//         showSuccess(signinPassword);
+//     }
+// });
+
+    </script>
+</body>
+</html>
