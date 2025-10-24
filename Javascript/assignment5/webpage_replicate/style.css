@@ -173,11 +173,168 @@ main{
     box-shadow: 2px 1px 0 rgb(94, 94, 94);
 }
 
+
+/* about section */
+
+#about{
+    min-height: 50vh;
+    border-bottom: 2px solid white;
+}
+
+.about-content{
+    margin:auto;
+    padding:25px;
+    width:60vw;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.about-content img,
+.prenuptial-content img,
+.marriage-content img,
+.divorce-content img{
+    border:5px solid white;
+    box-shadow: 0 0 5px grey;
+}
+
+.about-content h4 ,
+.prenuptial-content h4,
+.marriage-content h4,
+.divorce-content h4{
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.about-content p{
+    line-height: 1.5;
+    font-size: 1.1em;   
+}
+
+/* practices */
+
+#practices{
+    min-height: 90vh;
+    border-bottom: 2px solid white;
+}
+
+.practices-content{
+    min-height: 90vh;
+    margin: auto;
+    width:60vw;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap:20px;
+}
+
+.practices-left{
+    border-right: 1px dashed grey;
+}
+
+.practices-left h3{
+    font-size: 1.35em;
+    font-weight: 450;
+    padding: 25px 5px;
+    border-bottom: 1px dashed grey;
+}
+
+#testimonial{
+    font-family: 1.05em;
+    padding-top:20vh;
+}
+
+.practices-left p{
+    padding: 20px 50px 20px 5px;
+}
+
+.practices-left span{
+    display: block;
+    margin-top:25px;
+}
+
+.practices-right{
+ padding-left: 15px;
+}
+
+.practices-right h2{
+    margin: 25px 0 15px;
+    font-size: 2em;
+    font-weight: 650;
+}
+
+.practices-right p{
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.img-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.img-box {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border:5px solid white;
+    box-shadow: 0 0 5px grey;
+}
+
+.img-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6vh;
+    border: none;
+    background-color: darkgrey;
+    color: white;
+    font-size: 1em;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.img-caption:hover{
+    background-color: rgb(80, 80, 80);
+}
+
+/* prenuptial agreement */
+
+.prenuptial-content,
+.marriage-content,
+.divorce-content {
+    padding: 20px 10px;
+    width:auto;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+
+.prenuptial-content p,
+.marriage-content p,
+.divorce-content p{
+    line-height: 1.3;
+    font-size: 1em;   
+}
+
+/* footer */
 footer{
     background-color:#d9d9d9;
 }
 
 .footer-content{
+    padding: 10px;
     width:60vw;
     margin: auto;
     display: grid;
