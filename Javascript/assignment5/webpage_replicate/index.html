@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="style.css">
     <title>FWT Law Firm Website</title>
 </head>
@@ -19,18 +21,18 @@
 
         <nav>
             <ul>
-                <li><a>HOME</a></li>
-                <li><a>ABOUT</a></li>
-                <li><a>PRACTICES</a></li>
-                <li><a>OUR LAWYERS</a></li>
-                <li><a>NEWS</a></li>
-                <li><a>CONTACT</a></li>
+                <li><a id="homeBtn">HOME</a></li>
+                <li><a id="aboutBtn">ABOUT</a></li>
+                <li><a id="practicesBtn">PRACTICES</a></li>
+                <li><a id="lawyersBtn">OUR LAWYERS</a></li>
+                <li><a id="newsBtn">NEWS</a></li>
+                <li><a id="contactBtn">CONTACT</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- <section id="home">
+        <section id="home">
             <div class="banner">
                 <p>It's never easy...<br> When it comes to family.<br>
                 <span>But we can set <br>everything straight.</span></p>
@@ -65,28 +67,28 @@
                         </div>
                         <div class="info">
                             <img src="/Javascript/assignment5/webpage_replicate/7524a7_389ec021260d26e3ca2391b69fe1d1be.avif" alt="two people shaking hands">
-                            <h4>OUR LAWYERS</h4>
+                            <h4>GET TO KNOW US MORE</h4>
                             <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding own content.</p>
                             <button type="button">Read More</button>
                         </div>
                         <div class="info">
                             <img src="/Javascript/assignment5/webpage_replicate/7524a7_b4db933b9752fbb6bc297d8ec7424c35.avif" alt="a bald man">
-                            <h4>OUR LAWYERS</h4>
+                            <h4>WHAT WE OFFER</h4>
                             <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding own content.</p>
                             <button type="button">Read More</button>
                         </div>
                         <div class="info">
                             <img src="/Javascript/assignment5/webpage_replicate/7524a7_f60279f89f27fa09d0619a1a2e7ae959.avif" alt="picture of a family">
-                            <h4>OUR LAWYERS</h4>
+                            <h4>GET IN TOUCH WITH US</h4>
                             <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding own content.</p>
                             <button type="button">Read More</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
 
-        <!-- <section id="about">
+        <section id="about">
             <div class="about-content">
                 <h2>ABOUT</h2>
                 <img src="7524a7_060f1a691ee726b85da605dd776f201d.avif" alt="picture of a man showing thumbs up">
@@ -99,9 +101,9 @@
                     <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.</p>
                 </div>
             </div>
-        </section> -->
+        </section>
     
-        <!-- <section id="practices">
+        <section id="practices">
             <div class="practices-content">
                 <div class="practices-left">
                     <h3>PRACTICES</h3>
@@ -112,28 +114,28 @@
                         <span>- Jared Greene</span>
                     </p>
                 </div>
-                <div class="practices-right">
+                <div class="practices-right" id="practice-right-area">
                     <h2>PRACTICES</h2>
                     <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you.</p>
                     <div class="img-container">
                         <div class="img-box" id="box1">
                             <img src="7524a7_9b0cd94be9dbf95b56f42407f84957b7.avif" alt="picture of a man carrying a woman">
-                            <button type="button" class="img-caption">PRENUPTIAL AGREEMENT</button>
+                            <button type="button" class="img-caption" id="prenuptial-button">PRENUPTIAL AGREEMENT</button>
                         </div>
                         <div class="img-box">
                             <img src="7524a7_1c0425732cffc8c080bc7cf18d1df653.avif" alt="picture of a woman in white dress">
-                            <button type="button" class="img-caption">MARRIAGE</button>
+                            <button type="button" class="img-caption" id="marriage-button">MARRIAGE</button>
                         </div>
                         <div class="img-box">
                             <img src="7524a7_3c67480dba602a5e308185b3daa9fc82.avif" alt="picture of a child sitting in between a man and a woman">
-                            <button type="button" class="img-caption">DIVORCE</button>
+                            <button type="button" class="img-caption" id="divorce-button">DIVORCE</button>
                         </div>
                     </div>
                 </div>
             
-                <div class="practices-right-prenuptial">
+                <div class="practices-right-prenuptial" id="prenuptial-area">
                     <div class="prenuptial-content">
-                        <h2>PRENUPTIAL AGREEMENT</h2>
+                        <h2>PRENUPTIAL AGREEMENT <span class="backBtn">Back to practices</span></h2>
                         <img src="7524a7_cda583b61ca0ce0d01b877eb46418359.avif" alt="picture of a man carrying a woman">
                         <div>
                             <h4>THIS IS JUST A PLACE HOLDER.</h4>
@@ -146,9 +148,9 @@
                     </div>
                 </div>
 
-                <div class="practices-right-marriage">
+                <div class="practices-right-marriage" id="marriage-area">
                     <div class="marriage-content">
-                        <h2>MARRIAGE</h2>
+                        <h2>MARRIAGE <span class="backBtn">Back to practices</span></h2>
                         <img src="7524a7_7d280e9b6a6b352e63fb9ef92d107524.avif" alt="picture of a woman in white dress">
                         <div>
                             <h4>THIS IS JUST A PLACE HOLDER.</h4>
@@ -162,9 +164,9 @@
                 </div>
                 
 
-                <div class="practices-right-divorce">
+                <div class="practices-right-divorce" id="divorce-area">
                     <div class="divorce-content">
-                        <h2>MARRIAGE</h2>
+                        <h2>MARRIAGE <span class="backBtn">Back to practices</span></h2>
                         <img src="7524a7_66b3b06b13ff0e683825669ff86c423a.avif" alt="picture of a child sitting in between a man and a woman">
                         <div>
                             <h4>THIS IS JUST A PLACE HOLDER.</h4>
@@ -177,8 +179,163 @@
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
 
+
+        <section id="lawyers">
+            <div class="lawyers-content">
+                <div class="lawyers-left">
+                    <h3>OUR LAWYERS</h3>
+                    <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font.</p>
+                    <p>Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know more about you and your company.</p>
+                    <h3 id="testimonial-lawyer">CLIENT TESTIMONIALS</h3>
+                    <p>
+                        "The best family lawyers in the city so far. Me and my ex-wife didn't have any problems settling the terms and agreement. Everything went smoothly.
+                        We're both very happy."
+                        <span>- Jared Greene</span>
+                    </p>
+                </div>
+                <div class="lawyers-right">
+                    <h2>OUR LAWYERS</h2>
+                    <div class="directors">
+                        <div class="directors-content">
+                            <h4>DIRECTORS</h4>
+                            <div class="lawyer-detail">
+                                <img src="7524a7_6cc86f91e444bc9effe5c42629930626.avif" alt="picture of a female lawyer">
+                                <div class="lawyer-info">
+                                    <h5>PAULINE H. WILSON</h5>
+                                    <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you.</p>
+                                </div>                               
+                            </div>
+                            <div class="lawyer-detail">
+                                <img src="7524a7_e5bb253639d8e9cc403f0190ac51c962.avif" alt="picture of a male lawyer">
+                                <div class="lawyer-info">
+                                    <h5>KENNETH E. LUNDERBERG</h5>
+                                    <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors.</p>
+                                </div>                            
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="senior-associates">
+                        <div class="senior-content">
+                            <h4>SENIOR ASSOCIATES</h4>
+                            <div class="lawyer-detail">
+                                <img src="7524a7_b249a4cf7e19eeba194c92f7e079e909.avif" alt="picture of a female lawyer">
+                                <div class="lawyer-info">
+                                    <h5>GEORGE R. MONTGOMERY</h5>
+                                    <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know a little more about you.</p>
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="associates">
+                        <div class="associates-content">
+                            <h4>ASSOCIATES</h4>
+                            <div class="lawyer-detail">
+                                <img src="7524a7_6b763fcf147bdf9d47c0607813674a3a.avif" alt="picture of a female lawyer">
+                                <div class="lawyer-info">
+                                    <h5>DENISE M. SILVIA</h5>
+                                    <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company.Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors.</p>
+                                </div>                               
+                            </div>
+
+                            <div class="lawyer-detail">
+                                <img src="7524a7_aa29e9daace135bd4c39c516442445f6.avif" alt="picture of a female lawyer">
+                                <div class="lawyer-info">
+                                    <h5>NANCY R. BAKKEN</h5>
+                                    <p>This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company.Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors.</p>
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="news">
+            <div class="news-content">
+                <div class="news-left">
+                    <h3>OUR LAWYERS</h3>
+                    <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font.</p>
+                    <p>Feel free to drag and drop me anywhere you like on your page. I'm a great place for you to tell a story and let your users know more about you and your company.</p>
+                    <h3 id="testimonial-news">CLIENT TESTIMONIALS</h3>
+                    <p>
+                        "The best family lawyers in the city so far. Me and my ex-wife didn't have any problems settling the terms and agreement. Everything went smoothly.
+                        We're both very happy."
+                        <span>- Jared Greene</span>
+                    </p>
+                </div>
+                <div class="news-right" id="news-right-area">
+                    <div class="news-main">
+                        <h2>NEWS</h2>
+                        <div class="cards-container">
+                            <div class="cards">
+                                <img src="7524a7_6b7b91538324682afe0f0f85331d3dd6.avif" alt="picture of a bride">
+                                <div class="card-info">
+                                    <p class="date-in-card">January 31, 2023 by Manes Winchester</p>
+                                    <h4> THE BASICS OF MARRIAGE LAWS</h4>
+                                    <p class="card-text">You can replace all this text with your own text. Want an easier solution for a Free Website? Head straight to Wix and immediately start customizing your website! Wix is an online website builder with a simple drag & drop interface, meaning you do the work online and instantly publish to the web.</p>
+                                    <button type="button" class="news-read-more">READ MORE</button>
+                                </div>
+                            </div>
+
+                            <div class="cards">
+                                <img src="7524a7_61c4936192cc844c8a10f5cf2496f1a0.avif" alt="picture of a girl at a beach">
+                                <div class="card-info">
+                                    <p class="date-in-card">January 31, 2023 by Manes Winchester</p>
+                                    <h4> THE BASICS OF MARRIAGE LAWS</h4>
+                                    <p class="card-text">You can replace all this text with your own text. Want an easier solution for a Free Website? Head straight to Wix and immediately start customizing your website! Wix is an online website builder with a simple drag & drop interface, meaning you do the work online and instantly publish to the web.</p>
+                                    <button type="button" class="news-read-more">READ MORE</button>
+                                </div>
+                            </div>
+
+                            <div class="cards">
+                                <img src="7524a7_b36bc8ccdf3a68469ff5f828ca654021.avif" alt="picture of two children sitting with a dog">
+                                <div class="card-info">
+                                    <p class="date-in-card">January 31, 2023 by Manes Winchester</p>
+                                    <h4> THE BASICS OF MARRIAGE LAWS</h4>
+                                    <p class="card-text">You can replace all this text with your own text. Want an easier solution for a Free Website? Head straight to Wix and immediately start customizing your website! Wix is an online website builder with a simple drag & drop interface, meaning you do the work online and instantly publish to the web.</p>
+                                    <button type="button" class="news-read-more">READ MORE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-sub" id="news-sub-area">
+                        <img src="8385995c3b8635500c79495906f7c31f.wix_mp" alt="picture of a bride">
+                        <div class="news-sub-info">
+                            <h4>NEWS SINGLE POST</h4>
+                            <p class="date-in-card">January 31, 2023 by Manes Winchester</p>
+                            <p class="card-text">You can replace all this text with your own text. Want an easier solution for a Free Website? Head straight to Wix and immediately start customizing your website!</p>
+                            <p class="card-text">Wix is an online website builder with a simple drag & drop interface, meaning you do the work online and instantly publish to the web. All Wix templates are fully customizable and free to use.</p>
+                            <p class="card-text">Wix templates are fully customizable and free to use. Just pick one you like, click Edit, and enter the online editor. Change, add, and remove items as you like. If you're having problems editing this website template, then don't hesitate to ask for help on the Forums.</p>
+                            <p class="card-text">Wix also offers a ton of free design elements right inside the editor, like images, icons, galleries, videos and large selection of Add Ons and social feeds. Publish your Free Website in minutes!</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="contact">
+             <div class="contact-content">
+                <div class="contact-left">
+                    <h3>CONTACT INFO</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-house"></i><p>Manes Winchester<br>Family Law Firm <span>the address city, state 1111</span> </p></li>
+                        <li><i class="fa-solid fa-phone"></i><p>(+20) 000 222 999</p></li>
+                        <li><i class="fa-solid fa-fax"></i><p>(+20) 000 222 999</p></li>
+                        <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@maneswinchester.com">info@freewebsitetemplates.com</a></li>
+                    </ul>
+                </div>
+                <div class="contact-right">
+                    <h2>CONTACT</h2>
+                    <h4>SEND US A QUICK MESSAGE</h4>
+                    <p>I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font.</p>
+                </div>
+        </section>
     </main>
     <footer>
         <div class="footer-content">

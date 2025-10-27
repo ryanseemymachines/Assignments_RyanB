@@ -40,11 +40,20 @@ function showSuccess(input) {
     errorDiv.classList.remove('show');
 }
 
+function clearError(input) {
+    const formGroup = input.parentElement;
+    const errorDiv = formGroup.querySelector('.error-message');
+    input.classList.remove('error');
+    input.classList.remove('success');
+    errorDiv.classList.remove('show');
+    errorDiv.textContent = '';
+}
+
 function validateEmailReg(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if(!re.test(email)){
-        showError(regEmail,"Invalid email formal");
+        showError(regEmail,"Invalid email format");
         return false;
     }
 
@@ -84,6 +93,12 @@ const regEmail = document.getElementById('regEmail');
 const regPassword = document.getElementById('regPassword');
 const regConfirmPassword = document.getElementById('regConfirmPassword');
 const regSuccessMessage = document.getElementById('regSuccessMessage');
+
+// Add input event listeners to clear errors when user starts typing
+regName.addEventListener('input', () => clearError(regName));
+regEmail.addEventListener('input', () => clearError(regEmail));
+regPassword.addEventListener('input', () => clearError(regPassword));
+regConfirmPassword.addEventListener('input', () => clearError(regConfirmPassword));
 
 registrationForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -169,7 +184,10 @@ const signinForm = document.getElementById('signinForm');
 const signinEmail = document.getElementById('signinEmail');
 const signinPassword = document.getElementById('signinPassword');
 const signinSuccessMessage = document.getElementById('signinSuccessMessage');
-const signinPasswordError=document.getElementById('signinPasswordError');
+
+// Add input event listeners to clear errors when user starts typing
+signinEmail.addEventListener('input', () => clearError(signinEmail));
+signinPassword.addEventListener('input', () => clearError(signinPassword));
 
 signinForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -198,25 +216,29 @@ signinForm.addEventListener('submit', (e) => {
     }
 
     if (isValid) {
-
         let users = JSON.parse(localStorage.getItem("user")) || [];
         
         const emailIndex = users.findIndex(user => user.email === signinEmail.value.trim());
-        const signInPass = users[emailIndex].password;
-
-        if(users[emailIndex].email === signinEmail.value.trim()){
+        
+        if(emailIndex === -1) {
+            showError(signinEmail, "Email not registered");
+            signinSuccessMessage.classList.remove('show');
+        } else {
+            const signInPass = users[emailIndex].password;
+            
             if(signInPass === signinPassword.value.trim()){
                 signinSuccessMessage.textContent = 'Sign in successful! Welcome back!';
                 signinSuccessMessage.classList.add('show');
                 setTimeout(() => {
                     clearForm('signinForm');
+                    // Redirect to main page
+                    window.location.href = 'webpage_replicate/index.html';
                 }, 1000);
+            } else {
+                showError(signinPassword, "Incorrect password");
+                signinSuccessMessage.classList.remove('show');
             }
-            else{
-                showError(signinPassword,"Wrong passsword");
-            }
-        }else
-        {showError(signinEmail,"Wrong email");}
+        }
     } else {
         signinSuccessMessage.classList.remove('show');
     }

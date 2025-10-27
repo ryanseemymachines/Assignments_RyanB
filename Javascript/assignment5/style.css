@@ -1,4 +1,3 @@
-    
 *{
     margin:0;
     padding:0;
@@ -10,29 +9,31 @@ body{
     position: relative;
     overflow: hidden;
     background:linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
-    background-repeat: none;
+    min-height: 100vh;
 }
 
 .box1{
     position: absolute;
-    z-index: -1;
-    transform: rotate(30deg);
-    left:80%;
-    top:30%;
-    background-color: rgba(0, 0, 0, 0.084);
+    z-index: 0;
+    transform: rotate(45deg);
+    left:75%;
+    top:25%;
+    background: rgba(255, 255, 255, 0.1);
     width:50%;
     height:50vh;
+    border-radius: 20px;
 }
 
 .box2{
     position: absolute;
-    z-index: -1;
-    transform: rotate(30deg);
-    right:80%;
-    top:20%;
-    background-color: rgba(0, 0, 0, 0.084);
+    z-index: 0;
+    transform: rotate(45deg);
+    right:75%;
+    top:15%;
+    background: rgba(255, 255, 255, 0.1);
     width:50%;
     height:50vh;
+    border-radius: 20px;
 }
 
 main{
@@ -40,52 +41,65 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 #registration{
     background-color: white;
-    width:60%;
-    height:auto;
-    display:grid;
+    width: 900px;
+    max-width: 90%;
+    height: auto;
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .reg-left,.signin-right{
-    background-color: rgb(245, 236, 202);
-    padding: 30px;
+    background: linear-gradient(135deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:20px;
+    gap: 25px;
+    color: white;
 }
 
 .reg-left>h1,.signin-right>h1{
     font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .reg-left>p,.signin-right>p{
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 
 .reg-left>a,.signin-right>a{
     text-decoration: none;
-    font-size: 1.4em;
-    background-color: orangered;
-    color:white;
-    padding: 10px 25px;
-    border-radius: 25px;
-    transition: all 0.4s ease;
+    font-size: 1.2em;
+    font-weight: 600;
+    background-color: white;
+    color: rgba(253, 29, 29, 1);
+    padding: 12px 35px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .reg-left>a:hover,.signin-right>a:hover{
-    cursor: pointer;
-    background-color: white;
-    color: orangered;
-    font-weight: bold;
-    box-shadow: 0 0 3px rgb(124, 124, 124);
-    transform: scale(1.01);
+    background-color: rgba(253, 29, 29, 1);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .reg-left>a:active,.signin-right>a:active{
@@ -93,23 +107,26 @@ main{
 }
 
 .reg-right,.signin-left{
-    padding:30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:20px;
+    gap: 25px;
+    background-color: white;
 }
 
 .reg-right form,.signin-left form{
-    width:80%;
+    width: 85%;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
 }
 
 .reg-right h2,.signin-left h2{
     font-size: 2.3em;
+    color: #333;
+    font-weight: 700;
 }
 
 .form-group {
@@ -118,32 +135,39 @@ main{
 }
 
 .reg-right input,.signin-left input{
-    font-size: 1.1em;
-    width:100%;
-    padding: 15px;
-    outline:none;
-    border:none;
-    background-color: rgb(231, 231, 231);
-    border-radius: 10px;
+    font-size: 1.05em;
+    width: 100%;
+    padding: 15px 18px;
+    outline: none;
+    border: 2px solid #e0e0e0;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
 .reg-right input:focus,.signin-left input:focus{
-    outline: 2px solid grey;
+    background-color: white;
+    border-color: rgb(29, 63, 253);
 }
 
 .reg-right input.error,.signin-left input.error{
-    outline: 2px solid #ff4444;
+    border-color: #ff4444;
+    background-color: #fff5f5;
 }
 
+
 .reg-right input.success,.signin-left input.success{
-    outline: 2px solid #4CAF50;
+    border-color: #4CAF50;
 }
 
 .error-message {
     color: #ff4444;
     font-size: 0.85em;
-    margin-top: 5px;
+    margin-top: 6px;
     display: none;
+    font-weight: 500;
+    padding-left: 5px;
 }
 
 .error-message.show {
@@ -153,21 +177,13 @@ main{
 .success-message {
     color: #4CAF50;
     font-size: 1em;
-    padding: 10px;
+    font-weight: 600;
+    padding: 12px;
     background-color: #d4edda;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     display: none;
-}
-
-.success-message.wrong {
-    color: #ff4444;
-    font-size: 1em;
-    padding: 10px;
-    background-color: #d4edda;
-    border-radius: 5px;
-    text-align: center;
-    display: none;
+    border: 1px solid #c3e6cb;
 }
 
 .success-message.show {
@@ -175,23 +191,24 @@ main{
 }
 
 .reg-right button,.signin-left button{
-    width:50%;
-    border:none;
+    width: 60%;
+    align-self: center;
+    border: none;
     text-decoration: none;
-    font-size: 1.4em;
-    background-color: orangered;
-    color:white;
-    padding: 10px 25px;
-    border-radius: 25px;
-    transition: all 0.4s ease;
+    font-size: 1.3em;
+    font-weight: 600;
+    background: orangered;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .reg-right button:hover,.signin-left button:hover{
-    cursor: pointer;
     background-color: white;
     color: orangered;
-    font-weight: bold;
-    box-shadow: 0 0 3px rgb(124, 124, 124);
     transform: scale(1.01);
 }
 
@@ -201,10 +218,14 @@ main{
 
 #sign-in{
     background-color: white;
-    width:60%;
-    height:500px;
-    display:none;
+    width: 900px;
+    max-width: 90%;
+    height: auto;
+    display: none;
     grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 #sign-in.show{
@@ -220,5 +241,33 @@ main{
 }
 
 #registration.display{
-    display:grid;
+    display: grid;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #registration, #sign-in {
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
+    
+    .reg-left, .signin-right {
+        padding: 30px 20px;
+    }
+    
+    .reg-left>h1, .signin-right>h1 {
+        font-size: 2em;
+    }
+    
+    .reg-right, .signin-left {
+        padding: 30px 20px;
+    }
+    
+    .reg-right h2, .signin-left h2 {
+        font-size: 1.8em;
+    }
+    
+    .box1, .box2 {
+        display: none;
+    }
 }
