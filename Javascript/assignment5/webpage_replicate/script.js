@@ -1,134 +1,145 @@
-//navbar buttons
-const Homebtn=document.getElementById("homeBtn");
-const Aboutbtn=document.getElementById("aboutBtn");
-const PracticesBtn=document.getElementById("practicesBtn");
-const LawyersBtn=document.getElementById("lawyersBtn");
-const NewsBtn=document.getElementById("newsBtn");
-const ContactBtn=document.getElementById("contactBtn");
+//Navbar Buttons
+const navButtons ={
+    home: document.getElementById("homeBtn"),
+    about: document.getElementById("aboutBtn"),
+    practices: document.getElementById("practicesBtn"),
+    lawyers: document.getElementById("lawyersBtn"),
+    news: document.getElementById("newsBtn"),
+    contact: document.getElementById("contactBtn")
+};
 
-//sections
-const Home=document.getElementById("home");
-const About= document.getElementById("about");
-const Practices= document.getElementById("practices");
-const Lawyers= document.getElementById("lawyers");
-const News= document.getElementById("news");
-const SubNews=document.getElementById("news-sub-area");
-const Contact= document.getElementById("contact");
+//Page Sections
+const sections ={
+    home: document.getElementById("home"),
+    about: document.getElementById("about"),
+    practices: document.getElementById("practices"),
+    lawyers: document.getElementById("lawyers"),
+    news: document.getElementById("news"),
+    contact: document.getElementById("contact")
+};
 
-//practices sub sections buttons
-const PrenuptialBtn=document.getElementById("prenuptial-button");
-const MarriageBtn=document.getElementById("marriage-button");
-const DivorceBtn=document.getElementById("divorce-button");
-const BackBtns=document.querySelectorAll(".backBtn");
+//Subsections
+const practicesSub ={
+    right: document.getElementById("practice-right-area"),
+    prenuptial: document.getElementById("prenuptial-area"),
+    marriage: document.getElementById("marriage-area"),
+    divorce: document.getElementById("divorce-area")
+};
 
-//practices sub sections
-const Prenuptial=document.getElementById("prenuptial-area");
-const Marriage=document.getElementById("marriage-area");
-const Divorce=document.getElementById("divorce-area");
-const PracticesRight=document.getElementById("practice-right-area");
+const newsSub ={
+    right: document.getElementById("news-right-area"),
+    sub: document.getElementById("news-sub-area")
+};
 
-Prenuptial.style.display="none";
-Marriage.style.display="none";
-Divorce.style.display="none";    
-SubNews.style.display="none";
+// Hide all main sections
+function hideAllSections(){
+    Object.values(sections).forEach(sec => sec.style.display = "none");
+}
 
+// Set active navbar button
+function setActiveNav(currentBtn){
+    Object.values(navButtons).forEach(btn => btn.classList.remove("active"));
+    currentBtn.classList.add("active");
+}
 
-BackBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    PracticesRight.style.display = "block";
-    Prenuptial.style.display = "none";
-    Marriage.style.display = "none";
-    Divorce.style.display = "none";
-  });
+// Show a specific main section
+function showSection(sectionName){
+    hideAllSections();
+    sections[sectionName].style.display = "block";
+    setActiveNav(navButtons[sectionName]);
+}
+
+// Reset all practices subsections to main view
+function resetPractices(){
+    Object.values(practicesSub).forEach(sub => sub.style.display = "none");
+    practicesSub.right.style.display = "block";
+}
+
+// Reset news to main view
+function resetNews(){
+  newsSub.right.style.display = "block";
+  newsSub.sub.style.display = "none";
+}
+
+//Initial State
+hideAllSections();
+sections.home.style.display = "block";
+setActiveNav(navButtons.home);
+resetPractices();
+resetNews();
+
+//Navbar Click Events
+navButtons.home.addEventListener("click", () => showSection("home"));
+navButtons.about.addEventListener("click", () => showSection("about"));
+navButtons.lawyers.addEventListener("click", () => showSection("lawyers"));
+navButtons.contact.addEventListener("click", () => showSection("contact"));
+
+navButtons.practices.addEventListener("click", () =>{
+    showSection("practices");
+    resetPractices();
 });
 
-
-PrenuptialBtn.addEventListener("click" , () =>{
-    PracticesRight.style.display="none";
-    Prenuptial.style.display="block";
-    Marriage.style.display="none";
-    Divorce.style.display="none";
+navButtons.news.addEventListener("click", () =>{
+    showSection("news");
+    resetNews();
 });
 
-MarriageBtn.addEventListener("click" , () =>{
-    PracticesRight.style.display="none";
-    Prenuptial.style.display="none";
-    Marriage.style.display="block";
-    Divorce.style.display="none";
+//Practices Buttons
+document.getElementById("prenuptial-button").addEventListener("click", () =>{
+    practicesSub.right.style.display = "none";
+    practicesSub.prenuptial.style.display = "block";
 });
 
-DivorceBtn.addEventListener("click" , () =>{
-    PracticesRight.style.display="none";
-    Prenuptial.style.display="none";
-    Marriage.style.display="none";
-    Divorce.style.display="block";
+document.getElementById("marriage-button").addEventListener("click", () =>{
+    practicesSub.right.style.display = "none";
+    practicesSub.marriage.style.display = "block";
 });
 
-// news read more buttons
-const NewsReadMore=document.querySelectorAll(".news-read-more");
-const NewsRight=document.getElementById("news-right-area");
-
-//starting
-About.style.display="none";
-Practices.style.display="none";
-Lawyers.style.display="none";
-News.style.display="none";
-Contact.style.display="none";
-
-Homebtn.addEventListener("click" , () =>{
-    Home.style.display="block";
-    About.style.display="none";
-    Practices.style.display="none";
-    Lawyers.style.display="none";
-    News.style.display="none";
+document.getElementById("divorce-button").addEventListener("click", () =>{
+    practicesSub.right.style.display = "none";
+    practicesSub.divorce.style.display = "block";
 });
 
-
-Aboutbtn.addEventListener("click" , () =>{
-    About.style.display="block";
-    Home.style.display="none";
-    Practices.style.display="none";
-    Lawyers.style.display="none";
-    News.style.display="none";
+// Back buttons in Practices subsections
+document.querySelectorAll(".backBtn").forEach(btn =>{
+    btn.addEventListener("click", resetPractices);
 });
 
-PracticesBtn.addEventListener("click" , () =>{
-    Practices.style.display="block";
-    About.style.display="none";
-    Home.style.display="none";
-    Lawyers.style.display="none";
-    News.style.display="none";
+//News "Read More" Buttons
+document.querySelectorAll(".news-read-more").forEach(btn =>{
+    btn.addEventListener("click", () => {
+        newsSub.right.style.display = "none";
+        newsSub.sub.style.display = "block";
+    });
 });
 
-NewsBtn.addEventListener("click" , () =>{
-    Practices.style.display="none";
-    About.style.display="none";
-    Home.style.display="none";
-    Lawyers.style.display="none";
-    News.style.display="block";
+//"Why Choose Us" Buttons on Home
+document.getElementById("lawyersLinkBtn").addEventListener("click", () => showSection("lawyers"));
+document.getElementById("aboutLinkBtn").addEventListener("click", () => showSection("about"));
+document.getElementById("practicesLinkBtn").addEventListener("click", () => showSection("practices"));
+document.getElementById("contactLinkBtn").addEventListener("click", () => showSection("contact"));
+
+//Footer Contact Button
+document.getElementById("footerMsgBtn").addEventListener("click", () => showSection("contact"));
+
+//Dropdown Menu Items (Practices Submenu)
+document.getElementById("navPrenup").addEventListener("click", () =>{
+    showSection("practices");
+    resetPractices();
+    practicesSub.right.style.display = "none";
+    practicesSub.prenuptial.style.display = "block";
 });
 
-LawyersBtn.addEventListener("click", () =>{
-    Lawyers.style.display="block";
-    Home.style.display="none";
-    About.style.display="none";
-    Practices.style.display="none";
-    News.style.display="none";
+document.getElementById("navMarriage").addEventListener("click", () =>{
+    showSection("practices");
+    resetPractices();
+    practicesSub.right.style.display = "none";
+    practicesSub.marriage.style.display = "block";
 });
 
-ContactBtn.addEventListener("click", () =>{
-    Lawyers.style.display="none";
-    Home.style.display="none";
-    About.style.display="none";
-    Practices.style.display="none";
-    News.style.display="none";
-    Contact.style.display="block";
-});
-
-
-NewsReadMore.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    NewsRight.style.display = "none";
-    SubNews.style.display = "block";
-  });
+document.getElementById("navDivorce").addEventListener("click", () =>{
+    showSection("practices");
+    resetPractices();
+    practicesSub.right.style.display = "none";
+    practicesSub.divorce.style.display = "block";
 });

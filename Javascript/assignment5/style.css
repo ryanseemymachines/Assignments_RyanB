@@ -4,36 +4,16 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body{  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
-    overflow: hidden;
-    background:linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    overflow-x: hidden;
     min-height: 100vh;
-}
-
-.box1{
-    position: absolute;
-    z-index: 0;
-    transform: rotate(45deg);
-    left:75%;
-    top:25%;
-    background: rgba(255, 255, 255, 0.1);
-    width:50%;
-    height:50vh;
-    border-radius: 20px;
-}
-
-.box2{
-    position: absolute;
-    z-index: 0;
-    transform: rotate(45deg);
-    right:75%;
-    top:15%;
-    background: rgba(255, 255, 255, 0.1);
-    width:50%;
-    height:50vh;
-    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgba(131, 58, 180, 1);
 }
 
 main{
@@ -44,6 +24,7 @@ main{
     padding: 20px;
     position: relative;
     z-index: 1;
+    margin: 0 auto;
 }
 
 #registration{

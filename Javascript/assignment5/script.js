@@ -105,12 +105,18 @@ registrationForm.addEventListener('submit', (e) => {
     let isValid = true;
 
     // Validate name
-    if (regName.value.trim() === '') {
+    const nameValue = regName.value.trim();
+    const namePattern = /^[A-Za-z0-9_]+$/;
+    if (nameValue === ''){
         showError(regName, 'Name is required');
         isValid = false;
     } 
-    else if (regName.value.trim().length < 3) {
+    else if (nameValue.length < 3){
         showError(regName, 'Name must be at least 3 characters');
+        isValid = false;
+    } 
+    else if (!namePattern.test(nameValue)){
+        showError(regName, 'Name must not contain special characters');
         isValid = false;
     } 
     else {
