@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>To Do</title>
+</head>
+<body>
+    <main>
+
+        <section class="container">
+            <header>
+                <h1>TO DO LIST</h1>
+                <div class="header-display" id="time-display"></div>
+                <div class="header-display" id="date-display"></div>
+            </header>
+
+            <div class="under-header">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="search" placeholder="Search..." class="search-input">
+                </div>
+                <div class="main-btns">
+                    <button type="button" id="mark-as-completed">Mark all as completed</button>
+                    <button type="button" id="new-task"><i class="fa-solid fa-plus"></i> Add Task</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="Mymodal">
+            <form id="taskFormModal" novalidate>
+                <div id="taskheader">
+                    <span id="taskid"></span>
+                    <span id="close-create"><i class="fa-solid fa-xmark"></i></span>
+                </div>
+                <div class="form-group">
+                    <label for="taskTitle">Title:</label>
+                    <input type="text" id="taskTitle" placeholder="Title" required minlength="3">
+                    <div class="error-message" id="titleError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Description:</label>
+                    <textarea id="taskDescription" placeholder="Description" required></textarea>
+                    <div class="error-message" id="descriptionError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="taskDate">Date:</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+                <button type="submit" id="taskCreateSubmit">Submit</button>
+            </form>
+        </div>
+        
+
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
