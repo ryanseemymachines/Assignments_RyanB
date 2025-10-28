@@ -174,11 +174,9 @@ registrationForm.addEventListener('submit', (e) => {
         localStorage.setItem("user",JSON.stringify(users));
         setTimeout(() => {
             clearForm('registrationForm');
-        }, 500);
-        setTimeout(() => {
             reg.classList.add("clicked");
             signIn.classList.add("show");
-        },1000);
+        }, 500);
     } 
     else {
         regSuccessMessage.classList.remove('show');
