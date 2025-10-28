@@ -534,6 +534,7 @@ main{
 }
     
 .news-sub{
+    padding: 20px 0;
     width:85%;
     display: flex;
     align-items: flex-start;
@@ -545,6 +546,7 @@ main{
     flex-direction: column;
     gap:30px;
 }
+
 .news-sub h4{
     font-size: 1.7em;
     font-weight: 500;

@@ -109,7 +109,7 @@ document.querySelectorAll(".backBtn").forEach(btn =>{
 document.querySelectorAll(".news-read-more").forEach(btn =>{
     btn.addEventListener("click", () => {
         newsSub.right.style.display = "none";
-        newsSub.sub.style.display = "block";
+        newsSub.sub.style.display = "flex";
     });
 });
 

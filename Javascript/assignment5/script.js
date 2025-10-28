@@ -237,7 +237,6 @@ signinForm.addEventListener('submit', (e) => {
                 signinSuccessMessage.classList.add('show');
                 setTimeout(() => {
                     clearForm('signinForm');
-                    // Redirect to main page
                     window.location.href = 'webpage_replicate/index.html';
                 }, 1000);
             } else {
