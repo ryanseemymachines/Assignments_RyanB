@@ -146,10 +146,8 @@ form label{
     font-size: 1.2em;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
-    gap:1em;
+form label span{
+    color:red;
 }
 
 .form-group input,
@@ -173,18 +171,16 @@ form label{
     border-radius: 20px;
     font-size: 1em;
     font-weight: 600;
+    background-color: rgb(158, 30, 187);
+    color:rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 #taskFormModal button.inactive{
     background-color: rgba(128, 128, 128, 0.228);
     color:grey;
     cursor: not-allowed;
-}
-
-#taskFormModal button.active{
-    background-color: rgb(158, 30, 187);
-    color:rgb(255, 255, 255);
-    cursor: pointer;
+    pointer-events: none;
 }
 
 .form-group input.error,
@@ -193,10 +189,15 @@ form label{
     background-color: #fff5f5;
 }
 
+.form-group input.success,
+.form-group input.success{
+    border-color: #4CAF50;
+}
+
 .error-message {
     color: #ff4444;
     font-size: 0.85em;
-    margin-top: 6px;
+    margin: 6px 0;
     display: none;
     font-weight: 500;
     padding-left: 5px;
