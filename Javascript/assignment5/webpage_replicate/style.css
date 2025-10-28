@@ -173,6 +173,7 @@ main{
     border:2px solid white;    
     border-top:none;
 }
+
 .content{
     width:60vw;
     display:flex;
@@ -185,7 +186,7 @@ main{
     margin-top: 25px;
 }
 
-.cards{
+.why-chose-us-cards{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap:50px;
