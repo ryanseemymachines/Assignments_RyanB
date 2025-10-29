@@ -6,15 +6,19 @@
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #bfbfbf23;
+    background-color: #c07d7d;
 }
 
 .container{
     width:80%;
     min-height:80vh;
-    background-color: #7086983f;
+    background-color: #f1e7b1;
     margin: 20px auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 15px;
 }
 
 header{
@@ -30,8 +34,9 @@ header{
 /* search bar and two buttons alignment */
 .under-header{
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-end;
     align-items: center;
+    gap:40px;
 }
 
 /* search bar */
@@ -44,7 +49,7 @@ header{
     padding: 10px 10px 10px 35px; 
     border: 2px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 1.2em
 }
 
 .search-input:focus{
@@ -62,12 +67,8 @@ header{
 }
 
 /* completed button and add task button */
-.main-btns{
-    display: flex;
-    gap:20px;
-}
 
-.main-btns button{
+.under-header button{
     border:none;
     padding: 15px;
     border-radius: 10px;
@@ -93,7 +94,7 @@ header{
 }
 
 #new-task{
-    background-color: beige;
+    background-color: rgb(160, 160, 144);
 }
 
 #new-task:hover{
@@ -106,6 +107,119 @@ header{
     transform: scale(0.98);
 }
 
+.no-task{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #678892;
+}
+
+.no-task-sub{
+    text-align: center;
+    font-size: 1.5em;
+    color: #678892;
+}
+
+.task-card{
+    background: rgb(255, 255, 255);
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.task-card.completed{
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+.task-card.pending{
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+.task-card:hover{
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h4{
+    font-size: 1.3em;
+    font-weight:400;
+    text-decoration: underline;
+    margin-bottom: 10px;
+    color: #262921;
+}
+
+.task-card h3{
+    font-size: 1.3em;
+    font-weight:600;
+    color: #262921;
+}
+
+.status{
+    padding:5px 0;
+    font-size:1.1em;
+}
+
+.card-date{
+    padding:5px 0;
+    font-size:1.1em;
+}
+
+.task-description{
+    color: #6c757d;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.task-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.task-actions button{
+    padding: 8px 16px;
+    font-size: 1em;
+    border:none;
+    margin-top: 8px;
+    border-radius: 8px;
+}
+
+.task-actions .complete-btn{
+    background-color: #3d7f3fb4;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.task-actions .complete-btn:hover{
+    background-color: #4ddf52;
+    color: rgb(0, 0, 0);
+}
+
+.task-actions .edit-btn{
+    background-color: #662a80b4;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.task-actions .edit-btn:hover{
+    background-color: #c163e9;
+    color: rgb(0, 0, 0);
+}
+
+.task-actions .delete-btn{
+    background-color: #463b67b4;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.task-actions .delete-btn:hover{
+    background-color: #9e89de;
+    color: rgb(0, 0, 0);
+}
 
 /* new task modal styling */
 #Mymodal{
@@ -134,7 +248,8 @@ header{
 }
 
 form{
-    background-color: white;
+    background-color: rgb(97, 97, 97);
+    color: white;
     display: flex;
     flex-direction: column;
     width:50%;
@@ -171,15 +286,27 @@ form label span{
     border-radius: 20px;
     font-size: 1em;
     font-weight: 600;
+    background-color: rgba(128, 128, 128, 0.228);
+    color:grey;
+    cursor: not-allowed;
+}
+
+#taskFormModal button.active{
+    margin-top: 20px;
+    width:25%;
+    padding:20px;
+    border:none;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 600;
     background-color: rgb(158, 30, 187);
     color:rgb(255, 255, 255);
     cursor: pointer;
 }
 
 #taskFormModal button.inactive{
-    background-color: rgba(128, 128, 128, 0.228);
-    color:grey;
-    cursor: not-allowed;
+    background-color: rgba(188, 188, 188, 0.726);
+    color:rgb(119, 119, 119);
     pointer-events: none;
 }
 
@@ -190,8 +317,9 @@ form label span{
 }
 
 .form-group input.success,
-.form-group input.success{
+.form-group textarea.success{
     border-color: #4CAF50;
+    background-color: #f1fff1;
 }
 
 .error-message {
