@@ -7,7 +7,7 @@ const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 const dayName = days[now.getDay()];
 DateDisplay.textContent = `${dayName}, ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
 
-function updateClock() {
+function updateClock(){
     const present = new Date();
     let hours = present.getHours();
     const meridiem = hours >= 12 ? "PM" : "AM";
@@ -39,14 +39,14 @@ const searchInput = document.getElementById("search-input");
 ListTasks();
 
 // Mark all as completed
-MarkAsCompleted.addEventListener("click", () => {
+MarkAsCompleted.addEventListener("click", () =>{
     tasks.forEach(task => task.status = "Completed");
     localStorage.setItem("tasks", JSON.stringify(tasks));
     ListTasks();
 });
 
 // Open modal for new task
-NewTask.onclick = function() {
+NewTask.onclick = function(){
     clearForm();
     editIndex = null;
     TaskCreateSubmit.textContent = "Create Task";
@@ -55,33 +55,34 @@ NewTask.onclick = function() {
 };
 
 // Close modal
-CloseCreateTask.onclick = function() {
+CloseCreateTask.onclick = function(){
     Createmodal.style.display = "none";
     clearForm();
     editIndex = null;
 };
 
-window.onclick = function(event) {
-    if (event.target === Createmodal) {
+window.onclick = function(event){
+    if(event.target === Createmodal){
         Createmodal.style.display = "none";
         clearForm();
     }
 };
 
 // Form validation
-TaskForm.addEventListener("input", () => {
-    if (TaskTitle.value.trim() && TaskDate.value.trim()) {
+TaskForm.addEventListener("input", () =>{
+    if(TaskTitle.value.trim() && TaskDate.value.trim()){
         TaskCreateSubmit.classList.remove("inactive");
         TaskCreateSubmit.classList.add("active");
         TaskCreateSubmit.disabled = false;
-    } else {
+    } 
+    else{
         TaskCreateSubmit.classList.add("inactive");
         TaskCreateSubmit.classList.remove("active");
         TaskCreateSubmit.disabled = true;
     }
 });
 
-function showError(input, message) {
+function showError(input, message){
     const formGroup = input.parentElement;
     const errorDiv = formGroup.querySelector(".error-message");
     input.classList.add("error");
@@ -89,7 +90,7 @@ function showError(input, message) {
     errorDiv.classList.add("show");
 }
 
-function showSuccess(input) {
+function showSuccess(input){
     const formGroup = input.parentElement;
     const errorDiv = formGroup.querySelector(".error-message");
     input.classList.remove("error");
@@ -97,51 +98,57 @@ function showSuccess(input) {
     errorDiv.classList.remove("show");
 }
 
-function validateInputs() {
+function validateInputs(){
     let isValid = true;
     const title = TaskTitle.value.trim();
     const description = TaskDescription.value.trim();
     const dateValue = TaskDate.value.trim();
 
-    if (!title) {
+    if(!title){
         showError(TaskTitle, "Title is required.");
         isValid = false;
-    } else if (title.length < 3) {
+    } 
+    else if (title.length < 3){
         showError(TaskTitle, "Title must be at least 3 characters long.");
         isValid = false;
-    } else if (title.length > 50) {
+    } 
+    else if (title.length > 50){
         showError(TaskTitle, "Title can't be longer than 50 characters.");
         isValid = false;
-    } else if (!/^[A-Za-z0-9\s.,!?'"-]+$/.test(title)) {
+    } 
+    else if (!/^[A-Za-z\s.,!?'"-]+$/.test(title)){
         showError(TaskTitle, "Title contains invalid characters.");
         isValid = false;
-    } else {
+    } 
+    else{
         showSuccess(TaskTitle);
     }
 
-    if (description && description.length < 5) {
+    if(description && description.length < 5){
         showError(TaskDescription, "Description must be at least 5 characters long.");
         isValid = false;
-    } else {
+    } 
+    else{
         showSuccess(TaskDescription);
     }
 
-    if (!dateValue) {
+    if(!dateValue){
         showError(TaskDate, "Date is mandatory.");
         isValid = false;
-    } else {
+    } 
+    else{
         showSuccess(TaskDate);
     }
 
     return isValid;
 }
 
-function clearForm() {
+function clearForm(){
     TaskForm.reset();
-    [TaskTitle, TaskDescription, TaskDate].forEach(input => {
+    [TaskTitle, TaskDescription, TaskDate].forEach(input =>{
         input.classList.remove("error");
     });
-    TaskForm.querySelectorAll(".error-message").forEach(err => {
+    TaskForm.querySelectorAll(".error-message").forEach(err =>{
         err.textContent = "";
         err.classList.remove("show");
     });
@@ -151,23 +158,24 @@ function clearForm() {
 }
 
 // Handle form submit
-TaskForm.addEventListener("submit", (e) => {
+TaskForm.addEventListener("submit", (e) =>{
     e.preventDefault();
 
-    if (validateInputs()) {
-        const TaskDetails = {
+    if(validateInputs()){
+        const TaskDetails ={
             title: TaskTitle.value.trim(),
             desc: TaskDescription.value.trim(),
             date: TaskDate.value.trim(),
             status: 'Pending'
         };
 
-        if (editIndex !== null) {
+        if(editIndex !== null){
             TaskDetails.status = tasks[editIndex].status;
             tasks[editIndex] = TaskDetails;
             editIndex = null;
             TaskCreateSubmit.textContent = "Create Task";
-        } else {
+        } 
+        else{
             tasks.push(TaskDetails);
         }
 
@@ -178,19 +186,19 @@ TaskForm.addEventListener("submit", (e) => {
     }
 });
 
-function ListTasks() {
+function ListTasks(){
     const ListArea = document.getElementById("tasksList");
     ListArea.innerHTML = "";
 
     // Update Mark All button state
     MarkAsCompleted.disabled = tasks.length === 0;
 
-    if (tasks.length === 0) {
+    if(tasks.length === 0){
         ListArea.innerHTML = '<p class="no-task">No tasks available.</p><p class="no-task-sub">Click "Add Task" to get started.</p>';
         return;
     }
 
-    tasks.forEach((task, index) => {
+    tasks.forEach((task, index) =>{
         const taskCard = document.createElement("div");
         taskCard.classList.add("task-card");
         taskCard.classList.add(task.status === "Pending" ? "pending" : "completed");
@@ -211,8 +219,8 @@ function ListTasks() {
     });
 
     // Add event listeners
-    document.querySelectorAll(".delete-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
+    document.querySelectorAll(".delete-btn").forEach(btn =>{
+        btn.addEventListener("click", (e) =>{
             const index = e.target.getAttribute("data-index");
             tasks.splice(index, 1);
             localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -220,15 +228,15 @@ function ListTasks() {
         });
     });
 
-    document.querySelectorAll(".edit-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
+    document.querySelectorAll(".edit-btn").forEach(btn =>{
+        btn.addEventListener("click", (e) =>{
             const index = e.target.getAttribute("data-index");
             openEditModal(index);
         });
     });
 
-    document.querySelectorAll(".complete-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
+    document.querySelectorAll(".complete-btn").forEach(btn =>{
+        btn.addEventListener("click", (e) =>{
             const index = e.target.getAttribute("data-index");
             tasks[index].status = "Completed";
             localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -237,7 +245,7 @@ function ListTasks() {
     });
 }
 
-function openEditModal(index) {
+function openEditModal(index){
     editIndex = index;
     const task = tasks[index];
 
@@ -255,16 +263,17 @@ function openEditModal(index) {
 }
 
 // Search functionality
-searchInput.addEventListener("input", () => {
+searchInput.addEventListener("input", () =>{
     const filter = searchInput.value.toUpperCase();
     const allTasks = document.querySelectorAll(".task-card");
     let hiddenCount = 0;
 
-    allTasks.forEach(task => {
+    allTasks.forEach(task =>{
         const cardTitle = task.querySelector("h3").textContent.toUpperCase();
-        if (cardTitle.indexOf(filter) > -1) {
+        if(cardTitle.indexOf(filter) > -1){
             task.style.display = "";
-        } else {
+        } 
+        else{
             task.style.display = "none";
             hiddenCount++;
         }
@@ -273,11 +282,15 @@ searchInput.addEventListener("input", () => {
     const listArea = document.getElementById("tasksList");
     let msg = listArea.querySelector(".no-task");
 
-    if (hiddenCount === allTasks.length && allTasks.length > 0) {
-        if (!msg) {
-            listArea.innerHTML = '<p class="no-task">No tasks found</p>';
+    if(hiddenCount === allTasks.length && allTasks.length > 0){
+        if(!msg){
+            msg=document.createElement("p");
+            msg.className="no-task";
+            msg.textContent="No tasks available";
+            listArea.appendChild(msg);
         }
-    } else if (msg && hiddenCount < allTasks.length) {
+    } 
+    else if(msg){
         msg.remove();
     }
 });

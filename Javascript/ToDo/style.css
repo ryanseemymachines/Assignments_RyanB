@@ -1,16 +1,16 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: rgb(12, 43, 78);
     min-height: 100vh;
 }
 
-.container {
+.container{
     width: 80%;
     min-height: 80vh;
     background-color: rgb(244, 244, 244);
@@ -23,7 +23,7 @@ body {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-header {
+header{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -31,29 +31,29 @@ header {
     border-bottom: 2px solid rgb(29, 84, 108);
 }
 
-header h1 {
+header h1{
     color: rgb(12, 43, 78);
     font-size: 2em;
 }
 
-.header-display {
+.header-display{
     font-size: 1.2em;
     color: rgb(26, 61, 100);
 }
 
-.under-header {
+.under-header{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
 }
 
-.search-container {
+.search-container{
     position: relative;
     display: inline-block;
 }
 
-.search-input {
+.search-input{
     padding: 10px 10px 10px 35px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
@@ -62,12 +62,12 @@ header h1 {
     background-color: white;
 }
 
-.search-input:focus {
+.search-input:focus{
     outline: none;
     border: 2px solid rgb(29, 84, 108);
 }
 
-.search-icon {
+.search-icon{
     position: absolute;
     left: 10px;
     top: 50%;
@@ -76,7 +76,7 @@ header h1 {
     font-size: 16px;
 }
 
-.under-header button {
+.under-header button{
     border: none;
     padding: 12px 20px;
     border-radius: 8px;
@@ -86,37 +86,33 @@ header h1 {
     cursor: pointer;
 }
 
-#mark-as-completed {
-    background-color: rgb(29, 84, 108);
+#mark-as-completed{
+    background-color: rgb(63, 87, 97);
     color: white;
 }
 
-#mark-as-completed:hover:not(:disabled) {
-    background-color: rgb(26, 61, 100);
-    transform: translateY(-2px);
+#mark-as-completed:hover:not(:disabled){
+    background-color: rgb(11, 49, 93);
+    transform:scale(1.02);
 }
 
-#mark-as-completed:disabled {
+#mark-as-completed:disabled{
     background-color: #d1d5db;
     color: #9ca3af;
     cursor: not-allowed;
 }
 
-#new-task {
-    background-color: rgb(26, 61, 100);
+#new-task{
+    background-color: rgb(36, 87, 146);
     color: white;
 }
 
-#new-task:hover {
-    background-color: rgb(12, 43, 78);
-    transform: translateY(-2px);
+#new-task:hover{
+    background-color: rgb(4, 48, 98);
+    transform: scale(1.02);
 }
 
-#new-task:active, #mark-as-completed:active {
-    transform: translateY(0);
-}
-
-.no-task {
+.no-task{
     text-align: center;
     margin-top: 50px;
     font-size: 1.5em;
@@ -124,14 +120,14 @@ header h1 {
     color: #9ca3af;
 }
 
-.no-task-sub {
+.no-task-sub{
     text-align: center;
     font-size: 1.2em;
     color: #9ca3af;
     margin-top: 10px;
 }
 
-.task-card {
+.task-card{
     background: #ffffff;
     border: 2px solid #e5e7eb;
     border-radius: 12px;
@@ -140,54 +136,55 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-.task-card.completed {
-    background: #e0f2f1;
-    border-color: rgb(29, 84, 108);
+.task-card.completed{
+    background: #93c58f7a;
+    border-color: rgb(13, 255, 0);
 }
 
-.task-card.pending {
-    background: #fff9e6;
-    border-color: rgb(26, 61, 100);
+.task-card.pending{
+    background: #b26e6e33;
+    border-color: rgb(255, 0, 0);
 }
 
-.task-card:hover {
-    transform: translateY(-3px);
+.task-card:hover{
+    transform: scale(1.005);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.task-card h4 {
+.task-card h4{
     font-size: 1em;
     font-weight: 400;
-    color: #6b7280;
+    color: #565b66;
     margin-bottom: 8px;
 }
 
-.task-card h3 {
+.task-card h3{
     font-size: 1.4em;
     font-weight: 600;
     color: #1f2937;
     margin-bottom: 10px;
 }
 
-.task-description {
-    color: #6b7280;
+.task-description{
+    color: #4b5058;
     margin-bottom: 10px;
     line-height: 1.6;
 }
 
-.card-date, .status {
+.card-date, 
+.status{
     padding: 5px 0;
     font-size: 1em;
     color: #4b5563;
 }
 
-.task-actions {
+.task-actions{
     display: flex;
     gap: 10px;
     margin-top: 15px;
 }
 
-.task-actions button {
+.task-actions button{
     padding: 10px 18px;
     font-size: 0.95em;
     border: none;
@@ -197,34 +194,34 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-.task-actions .complete-btn {
-    background-color: rgb(29, 84, 108);
+.task-actions .complete-btn{
+    background-color: rgba(56, 90, 105, 0.913);
     color: white;
 }
 
-.task-actions .complete-btn:hover {
-    background-color: rgb(26, 61, 100);
+.task-actions .complete-btn:hover{
+    background-color: rgb(17, 58, 106);
 }
 
-.task-actions .edit-btn {
-    background-color: rgb(26, 61, 100);
+.task-actions .edit-btn{
+    background-color: rgba(58, 76, 97, 0.835);
     color: white;
 }
 
-.task-actions .edit-btn:hover {
+.task-actions .edit-btn:hover{
     background-color: rgb(12, 43, 78);
 }
 
-.task-actions .delete-btn {
-    background-color: #ef4444;
+.task-actions .delete-btn{
+    background-color: #e46868;
     color: white;
 }
 
-.task-actions .delete-btn:hover {
-    background-color: #dc2626;
+.task-actions .delete-btn:hover{
+    background-color: #db2222;
 }
 
-#Mymodal {
+#Mymodal{
     display: none;
     align-items: center;
     justify-content: center;
@@ -237,7 +234,7 @@ header h1 {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#taskheader {
+#taskheader{
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -245,16 +242,16 @@ header h1 {
     align-items: center;
 }
 
-#taskheader i {
+#taskheader i{
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-#taskheader i:hover {
+#taskheader i:hover{
     transform: scale(1.2);
 }
 
-form {
+form{
     background-color: #ffffff;
     color: rgb(12, 43, 78);
     display: flex;
@@ -265,22 +262,22 @@ form {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-form label {
+form label{
     font-size: 1.1em;
     margin-bottom: 8px;
     font-weight: 500;
 }
 
-form label span {
+form label span{
     color: #ef4444;
 }
 
-.form-group {
+.form-group{
     margin-bottom: 20px;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea{
     font-size: 1em;
     width: 100%;
     padding: 12px 15px;
@@ -294,12 +291,12 @@ form label span {
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus{
     border-color: rgb(29, 84, 108);
     background-color: #ffffff;
 }
 
-#taskFormModal button {
+#taskFormModal button{
     margin-top: 20px;
     width: 30%;
     padding: 15px;
@@ -310,29 +307,29 @@ form label span {
     transition: all 0.3s ease;
 }
 
-#taskFormModal button.active {
-    background-color: rgb(26, 61, 100);
+#taskFormModal button.active{
+    background-color: rgba(28, 52, 79, 0.732);
     color: #ffffff;
     cursor: pointer;
 }
 
-#taskFormModal button.active:hover {
+#taskFormModal button.active:hover{
     background-color: rgb(12, 43, 78);
 }
 
-#taskFormModal button.inactive {
+#taskFormModal button.inactive{
     background-color: #e5e7eb;
     color: #9ca3af;
     cursor: not-allowed;
 }
 
 .form-group input.error,
-.form-group textarea.error {
+.form-group textarea.error{
     border-color: #ef4444;
     background-color: #fef2f2;
 }
 
-.error-message {
+.error-message{
     color: #ef4444;
     font-size: 0.85em;
     margin-top: 6px;
@@ -340,6 +337,6 @@ form label span {
     font-weight: 500;
 }
 
-.error-message.show {
+.error-message.show{
     display: block;
 }
