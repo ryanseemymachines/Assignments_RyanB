@@ -13,7 +13,10 @@ body{
 }
 
 .form-container{
-    border:1px solid black;
+    margin: 10px 0;
+    border:1px solid rgba(87, 87, 87, 0.734);
+    box-shadow: 0 0 10px grey;
+    border-radius: 10px;
     width:40%;
     padding: 20px;;
 }
@@ -35,6 +38,12 @@ body{
 
 .form-group label{
     margin: 0 0 8px 5px;
+}
+
+.form-group label span{
+    color:red;
+    font-size:1.2em;
+    font-weight: bold;
 }
 
 .form-group input[type="text"],
@@ -82,21 +91,35 @@ body{
     gap:20px;
 }
 
-button{
+button {
     margin-top: 20px;
-    width:25%;
-    padding:20px;
-    border:none;
+    width: 25%;
+    padding: 20px;
+    border: none;
     border-radius: 20px;
     font-size: 1em;
     font-weight: 600;
     background-color: rgba(128, 128, 128, 0.228);
-    color:grey;
+    color: grey;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
 }
 
-button.active{
+button.active {
     background-color: rgb(158, 30, 187);
-    color:rgb(255, 255, 255);
+    color: white;
     cursor: pointer;
+    transform: scale(1.03);
 }
 
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
