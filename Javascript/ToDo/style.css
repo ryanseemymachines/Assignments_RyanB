@@ -1,63 +1,73 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #c07d7d;
+    background: rgb(12, 43, 78);
+    min-height: 100vh;
 }
 
-.container{
-    width:80%;
-    min-height:80vh;
-    background-color: #f1e7b1;
+.container {
+    width: 80%;
+    min-height: 80vh;
+    background-color: rgb(244, 244, 244);
     margin: 20px auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
     border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-header{
+header {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(29, 84, 108);
 }
 
-.header-display{
-    font-size: 1.5em;
+header h1 {
+    color: rgb(12, 43, 78);
+    font-size: 2em;
 }
 
-/* search bar and two buttons alignment */
-.under-header{
+.header-display {
+    font-size: 1.2em;
+    color: rgb(26, 61, 100);
+}
+
+.under-header {
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
     align-items: center;
-    gap:40px;
+    gap: 20px;
 }
 
-/* search bar */
-.search-container{
-  position: relative;
-  display: inline-block;
+.search-container {
+    position: relative;
+    display: inline-block;
 }
 
-.search-input{
-    padding: 10px 10px 10px 35px; 
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 1.2em
+.search-input {
+    padding: 10px 10px 10px 35px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border 0.3s ease;
+    background-color: white;
 }
 
-.search-input:focus{
+.search-input:focus {
     outline: none;
-    border:2px solid #678892;
+    border: 2px solid rgb(29, 84, 108);
 }
 
-.search-icon{
+.search-icon {
     position: absolute;
     left: 10px;
     top: 50%;
@@ -66,269 +76,268 @@ header{
     font-size: 16px;
 }
 
-/* completed button and add task button */
-
-.under-header button{
-    border:none;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 1.05em;
-    font-weight:600;
-    transition: all 0.4s ease-in-out;
+.under-header button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
-#mark-as-completed{
-    background-color: rgba(0, 181, 0, 0.737);
-    color:white;
+#mark-as-completed {
+    background-color: rgb(29, 84, 108);
+    color: white;
 }
 
-#mark-as-completed:hover{
-    transform: scale(1.02);
-    background-color: white;
-    color:green;
+#mark-as-completed:hover:not(:disabled) {
+    background-color: rgb(26, 61, 100);
+    transform: translateY(-2px);
 }
 
-#mark-as-completed:active{
-    transform: scale(0.98);
+#mark-as-completed:disabled {
+    background-color: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
 }
 
-#new-task{
-    background-color: rgb(160, 160, 144);
+#new-task {
+    background-color: rgb(26, 61, 100);
+    color: white;
 }
 
-#new-task:hover{
-    color:beige;
-    background-color: black;
-    transform: scale(1.03);
+#new-task:hover {
+    background-color: rgb(12, 43, 78);
+    transform: translateY(-2px);
 }
 
-#new-task:active{
-    transform: scale(0.98);
+#new-task:active, #mark-as-completed:active {
+    transform: translateY(0);
 }
 
-.no-task{
+.no-task {
     text-align: center;
     margin-top: 50px;
     font-size: 1.5em;
     font-weight: 600;
-    color: #678892;
+    color: #9ca3af;
 }
 
-.no-task-sub{
+.no-task-sub {
     text-align: center;
-    font-size: 1.5em;
-    color: #678892;
+    font-size: 1.2em;
+    color: #9ca3af;
+    margin-top: 10px;
 }
 
-.task-card{
-    background: rgb(255, 255, 255);
-    border: 2px solid #e9ecef;
-    border-radius: 10px;
+.task-card {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
     padding: 20px;
     margin-bottom: 15px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
-.task-card.completed{
-    background: #d4edda;
-    border-color: #28a745;
+.task-card.completed {
+    background: #e0f2f1;
+    border-color: rgb(29, 84, 108);
 }
 
-.task-card.pending{
-    background: #f8d7da;
-    border-color: #dc3545;
+.task-card.pending {
+    background: #fff9e6;
+    border-color: rgb(26, 61, 100);
 }
 
-.task-card:hover{
-    transform: scale(1.01);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.task-card h4{
-    font-size: 1.3em;
-    font-weight:400;
-    text-decoration: underline;
+.task-card h4 {
+    font-size: 1em;
+    font-weight: 400;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.task-card h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #1f2937;
     margin-bottom: 10px;
-    color: #262921;
 }
 
-.task-card h3{
-    font-size: 1.3em;
-    font-weight:600;
-    color: #262921;
-}
-
-.status{
-    padding:5px 0;
-    font-size:1.1em;
-}
-
-.card-date{
-    padding:5px 0;
-    font-size:1.1em;
-}
-
-.task-description{
-    color: #6c757d;
+.task-description {
+    color: #6b7280;
     margin-bottom: 10px;
     line-height: 1.6;
 }
 
-.task-actions{
+.card-date, .status {
+    padding: 5px 0;
+    font-size: 1em;
+    color: #4b5563;
+}
+
+.task-actions {
     display: flex;
     gap: 10px;
+    margin-top: 15px;
 }
 
-.task-actions button{
-    padding: 8px 16px;
-    font-size: 1em;
-    border:none;
-    margin-top: 8px;
+.task-actions button {
+    padding: 10px 18px;
+    font-size: 0.95em;
+    border: none;
     border-radius: 8px;
-}
-
-.task-actions .complete-btn{
-    background-color: #3d7f3fb4;
-    color: white;
+    cursor: pointer;
+    font-weight: 500;
     transition: all 0.3s ease;
 }
 
-.task-actions .complete-btn:hover{
-    background-color: #4ddf52;
-    color: rgb(0, 0, 0);
-}
-
-.task-actions .edit-btn{
-    background-color: #662a80b4;
+.task-actions .complete-btn {
+    background-color: rgb(29, 84, 108);
     color: white;
-    transition: all 0.3s ease;
 }
 
-.task-actions .edit-btn:hover{
-    background-color: #c163e9;
-    color: rgb(0, 0, 0);
+.task-actions .complete-btn:hover {
+    background-color: rgb(26, 61, 100);
 }
 
-.task-actions .delete-btn{
-    background-color: #463b67b4;
+.task-actions .edit-btn {
+    background-color: rgb(26, 61, 100);
     color: white;
-    transition: all 0.3s ease;
 }
 
-.task-actions .delete-btn:hover{
-    background-color: #9e89de;
-    color: rgb(0, 0, 0);
+.task-actions .edit-btn:hover {
+    background-color: rgb(12, 43, 78);
 }
 
-/* new task modal styling */
-#Mymodal{
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.757);
+.task-actions .delete-btn {
+    background-color: #ef4444;
+    color: white;
+}
+
+.task-actions .delete-btn:hover {
+    background-color: #dc2626;
+}
+
+#Mymodal {
     display: none;
     align-items: center;
     justify-content: center;
-    position: fixed; 
+    position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-#taskheader{
+#taskheader {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
     font-size: 1.5em;
+    align-items: center;
 }
 
-#taskheader i{
+#taskheader i {
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-form{
-    background-color: rgb(97, 97, 97);
-    color: white;
+#taskheader i:hover {
+    transform: scale(1.2);
+}
+
+form {
+    background-color: #ffffff;
+    color: rgb(12, 43, 78);
     display: flex;
     flex-direction: column;
-    width:50%;
-    padding:20px;    
-    border-radius: 10px;
+    width: 50%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-form label{
-    font-size: 1.2em;
+form label {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-form label span{
-    color:red;
+form label span {
+    color: #ef4444;
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 .form-group input,
-.form-group textarea{
-    font-size: 1.05em;
+.form-group textarea {
+    font-size: 1em;
     width: 100%;
-    padding: 15px 18px;
+    padding: 12px 15px;
     outline: none;
-    border: 2px solid #e0e0e0;
-    background-color: #f8f9fa;
-    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    background-color: #f9fafb;
+    border-radius: 8px;
     font-family: inherit;
     resize: vertical;
+    transition: all 0.3s ease;
 }
 
-#taskFormModal button{
-    margin-top: 20px;
-    width:25%;
-    padding:20px;
-    border:none;
-    border-radius: 20px;
-    font-size: 1em;
-    font-weight: 600;
-    background-color: rgba(128, 128, 128, 0.228);
-    color:grey;
-    cursor: not-allowed;
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgb(29, 84, 108);
+    background-color: #ffffff;
 }
 
-#taskFormModal button.active{
+#taskFormModal button {
     margin-top: 20px;
-    width:25%;
-    padding:20px;
-    border:none;
-    border-radius: 20px;
+    width: 30%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
     font-size: 1em;
     font-weight: 600;
-    background-color: rgb(158, 30, 187);
-    color:rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+
+#taskFormModal button.active {
+    background-color: rgb(26, 61, 100);
+    color: #ffffff;
     cursor: pointer;
 }
 
-#taskFormModal button.inactive{
-    background-color: rgba(188, 188, 188, 0.726);
-    color:rgb(119, 119, 119);
-    pointer-events: none;
+#taskFormModal button.active:hover {
+    background-color: rgb(12, 43, 78);
+}
+
+#taskFormModal button.inactive {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
 }
 
 .form-group input.error,
-.form-group textarea.error{
-    border-color: #ff4444;
-    background-color: #fff5f5;
-}
-
-.form-group input.success,
-.form-group textarea.success{
-    border-color: #4CAF50;
-    background-color: #f1fff1;
+.form-group textarea.error {
+    border-color: #ef4444;
+    background-color: #fef2f2;
 }
 
 .error-message {
-    color: #ff4444;
+    color: #ef4444;
     font-size: 0.85em;
-    margin: 6px 0;
+    margin-top: 6px;
     display: none;
     font-weight: 500;
-    padding-left: 5px;
 }
 
 .error-message.show {
