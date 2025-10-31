@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Employee Dashboard</title>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Employee Dashboard</h1>
+        </header>
+
+        <div class="under-header">
+            <button id="addEmployee"><i class="fa-solid fa-plus"></i> Add Employee</button>
+            <button id="editEmployee"><i class="fa-solid fa-pen"></i> Edit Employee</button>
+            <button id="deleteEmployee"><i class="fa-solid fa-trash"></i> Delete Employee</button>
+            <button id="fetchEmployee"><i class="fa-solid fa-database"></i> Fetch Employees</button>
+        </div>
+
+        <div id="employeeList" class="employee-list">
+            <p class="no-employee">No employee records found.</p>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="employeeModal">
+        <form id="employeeForm" novalidate>
+            <div id="modalHeader">
+                <span id="modalHeading">Add Employee</span>
+                <span id="closeModal"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+
+            <div class="form-group">
+                <label for="empName">Name<span>*</span>:</label>
+                <input type="text" id="empName" placeholder="Enter name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="empDesignation">Designation<span>*</span>:</label>
+                <input type="text" id="empDesignation" placeholder="Enter designation" required>
+                <div class="error-message" id="designationError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="empDob">Date of Birth<span>*</span>:</label>
+                <input type="date" id="empDob" required>
+                <div class="error-message" id="dobError"></div>
+            </div>
+
+            <!-- Inline form message -->
+            <p id="formMessage" class="form-message"></p>
+
+            <button type="submit" id="saveEmployee" class="inactive">Save</button>
+        </form>
+    </div>
+
+    <script src="employeeDashboard.js"></script>
+</body>
+</html>
