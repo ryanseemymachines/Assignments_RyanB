@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: rgb(12, 43, 78);
@@ -108,11 +114,13 @@ form{
 
 .form-group{
     margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group input{
     font-size: 1em;
-    width: 100%;
+    width:100%;
     padding: 12px 15px;
     outline: none;
     border: 2px solid #e5e7eb;
@@ -139,6 +147,12 @@ form button{
 
 form button.active{
     background-color: rgba(28, 52, 79, 0.732);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+form button.active:hover{
+    background-color: rgb(15, 40, 68);
     color: #ffffff;
     cursor: pointer;
 }
@@ -175,18 +189,39 @@ form button.inactive{
     color: red;
     display: block;
 }
+.form-message.info {
+    color: rgb(62, 62, 62);
+    display: block;
+}
 
-.form-dropdown {
+select{
     width: 100%;
     padding: 10px;
     border-radius: 8px;
     border: 2px solid #e5e7eb;
-    margin-bottom: 15px;
+    margin: 15px 0;
     font-size: 1em;
     background-color: #f9fafb;
+    color: rgb(62, 62, 62);
 }
-.form-dropdown:focus {
+
+select:focus {
     border-color: rgb(29, 84, 108);
     outline: none;
     background-color: white;
+}
+
+.table-container{
+    display: none;
+    padding:20px;
+}
+table{
+    margin: auto;
+    background-color: rgb(250, 230, 186);
+    border-collapse: collapse;
+}
+
+td,th{
+    padding: 20px;
+    border: 1px solid black;
 }
