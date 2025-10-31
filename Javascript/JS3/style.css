@@ -1,0 +1,192 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(12, 43, 78);
+    min-height: 100vh;
+}
+
+.container{
+    width: 80%;
+    min-height: 80vh;
+    background-color: rgb(244, 244, 244);
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+header{
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgb(29, 84, 108);
+}
+
+header h1{
+    color: rgb(12, 43, 78);
+    font-size: 2em;
+}
+
+.under-header{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.under-header button{
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: white;
+}
+
+#addEmployee{ background-color: rgb(36, 87, 146); }
+#addEmployee:hover{ background-color: rgb(4, 48, 98); }
+
+#editEmployee{ background-color: rgb(78, 115, 223); }
+#editEmployee:hover{ background-color: rgb(49, 91, 192); }
+
+#deleteEmployee{ background-color: #e46868; }
+#deleteEmployee:hover{ background-color: #db2222; }
+
+#fetchEmployee{ background-color: rgb(63, 87, 97); }
+#fetchEmployee:hover{ background-color: rgb(11, 49, 93); }
+
+.employee-list{
+    margin-top: 40px;
+}
+
+.no-employee{
+    text-align: center;
+    color: #9ca3af;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* Modal Styles */
+#employeeModal{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+form{
+    background-color: #ffffff;
+    color: rgb(12, 43, 78);
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+#modalHeader{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#modalHeader i{
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#modalHeader i:hover{
+    transform: scale(1.2);
+}
+
+.form-group{
+    margin-bottom: 18px;
+}
+
+.form-group input{
+    font-size: 1em;
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus{
+    border-color: rgb(29, 84, 108);
+    background-color: #ffffff;
+}
+
+form button{
+    margin-top: 20px;
+    width: 30%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+form button.active{
+    background-color: rgba(28, 52, 79, 0.732);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+form button.inactive{
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.error-message{
+    color: #ef4444;
+    font-size: 0.85em;
+    margin-top: 6px;
+    display: none;
+}
+
+.error-message.show{
+    display: block;
+}
+
+.form-message {
+    text-align: center;
+    margin-top: 8px;
+    font-weight: 500;
+    display: none;
+    transition: all 0.3s ease;
+}
+.form-message.success {
+    color: green;
+    display: block;
+}
+.form-message.error {
+    color: red;
+    display: block;
+}
+
+.form-dropdown {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    margin-bottom: 15px;
+    font-size: 1em;
+    background-color: #f9fafb;
+}
+.form-dropdown:focus {
+    border-color: rgb(29, 84, 108);
+    outline: none;
+    background-color: white;
+}
