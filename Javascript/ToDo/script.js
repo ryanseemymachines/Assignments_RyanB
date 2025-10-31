@@ -132,17 +132,26 @@ function validateInputs(){
         showSuccess(TaskDescription);
     }
 
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const selectedDate = new Date(dateValue);
+    selectedDate.setHours(0, 0, 0, 0);
+
     if(!dateValue){
         showError(TaskDate, "Date is mandatory.");
         isValid = false;
     } 
+    else if(selectedDate < today){
+        showError(TaskDate, "Date cannot be in the past.");
+        isValid = false;
+    }
     else{
         showSuccess(TaskDate);
     }
 
     return isValid;
 }
-
 function clearForm(){
     TaskForm.reset();
     [TaskTitle, TaskDescription, TaskDate].forEach(input =>{
