@@ -138,7 +138,8 @@ function createDropdown(){
             selectedEmployee=ChosenEmployee;
             empName.value=ChosenEmployee.name;
             empDesignation.value=ChosenEmployee.designation;
-            empDob.value=ChosenEmployee.dob;
+            const formattedDate = new Date(ChosenEmployee.dob).toISOString().split("T")[0];
+            empDob.value = formattedDate;
             activateButton();
         }
     });
@@ -318,7 +319,7 @@ function validateForm() {
         showFormMessage("Designation must contain only letters.", "error");
         valid = false;
     }
-    
+
     return true;
 }
 
@@ -330,7 +331,7 @@ employeeForm.addEventListener("submit", (e)=> {
     const empData={
         name:empName.value.trim(),
         designation: empDesignation.value.trim(),
-        dob:empDob.value.trim()
+        dob:empDob.value.trim().toISOString
     };
 
     if(currentAction==="add"){
