@@ -153,15 +153,15 @@ function clearForm(){
     TaskCreateSubmit.classList.remove("active");
 }
 
+[TaskTitle, TaskDescription, TaskDate].forEach(input => {
+    input.addEventListener("input", () => {
+        showSuccess(input);
+    });
+});
+
 // Handle form submit
 TaskForm.addEventListener("submit", (e) =>{
     e.preventDefault();
-
-    [TaskTitle, TaskDescription, TaskDate].forEach(input => {
-        input.addEventListener("input", () => {
-            showSuccess(input);
-        });
-    });
 
     if(validateInputs()){
         const TaskDetails ={
@@ -308,7 +308,7 @@ searchInput.addEventListener("input", () =>{
         if(!msg){
             msg=document.createElement("p");
             msg.className="no-task";
-            msg.textContent="No tasks available";
+            msg.textContent="No matching tasks available";
             listArea.appendChild(msg);
         }
     } 
