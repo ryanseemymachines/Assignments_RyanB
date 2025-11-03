@@ -18,12 +18,16 @@ const personalSection = document.querySelector(".personal-data-choice");
 const successMsg = document.getElementById("regSuccessMessage");
 const submitBtn = document.getElementById("reg-submit");
 
+const today = new Date();
+today.setFullYear(today.getFullYear() - 18);''
+const maxDate = today.toISOString().split("T")[0];
+birthday.setAttribute("max", maxDate);
+
 // Show/Hide Personal Data Section
 choiceYes.addEventListener("change", () =>{
     if(choiceYes.checked){
         choiceNo.checked = false;
         personalSection.style.display = "flex";
-        checkRequiredFields();
     }
 });
 
@@ -78,17 +82,6 @@ function clearError(input){
     if(errorDiv){
         errorDiv.textContent = "";
     }
-}
-
-function calculateAge(dob){
-    const birthDate = new Date(dob);
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    if(monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
 }
 
 // Validate all fields - only called on submit
@@ -162,11 +155,6 @@ function validateForm(){
             showError(birthday, "Date of birth is required.");
             valid = false;
         }
-        else if(calculateAge(birthday.value) < 18){
-            showError(birthday, "You must be at least 18 years old.");
-            valid = false;
-        }
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if(!email.value.trim() || !emailRegex.test(email.value.trim())){
             showError(email, "Enter a valid email address.");
@@ -233,3 +221,5 @@ form.addEventListener("submit", (e) =>{
         }, 2000);
     } 
 });
+
+
