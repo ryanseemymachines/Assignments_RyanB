@@ -19,7 +19,7 @@ const successMsg = document.getElementById("regSuccessMessage");
 const submitBtn = document.getElementById("reg-submit");
 
 const today = new Date();
-today.setFullYear(today.getFullYear() - 18);''
+today.setFullYear(today.getFullYear() - 18);
 const maxDate = today.toISOString().split("T")[0];
 birthday.setAttribute("max", maxDate);
 
