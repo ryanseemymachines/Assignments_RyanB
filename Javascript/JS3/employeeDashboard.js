@@ -70,6 +70,9 @@ async function openModal(action){
         removeDropdown();
         createDropdown();
         TableContainer.style.display="none";
+        empName.disabled=false;
+        empDesignation.disabled=false;
+        empDob.disabled=false;
     }
 
     if(action==="delete"){
@@ -328,10 +331,10 @@ function validateForm() {
 employeeForm.addEventListener("submit", (e)=> {
     e.preventDefault();
 
-    const empData={
-        name:empName.value.trim(),
+    const empData ={
+        name: empName.value.trim(),
         designation: empDesignation.value.trim(),
-        dob:empDob.value.trim().toISOString
+        dob: new Date(empDob.value.trim()).toISOString()
     };
 
     if(currentAction==="add"){
