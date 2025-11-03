@@ -28,7 +28,7 @@ choiceYes.addEventListener("change", () =>{
 });
 
 choiceNo.addEventListener("change", () =>{
-    if (choiceNo.checked){
+    if(choiceNo.checked){
         choiceYes.checked = false;
         personalSection.style.display = "none";
         // Clear personal data fields when "No" is selected
@@ -39,7 +39,6 @@ choiceNo.addEventListener("change", () =>{
         clearError(birthday);
         clearError(email);
         clearError(male);
-        checkRequiredFields();
     }
 });
 
@@ -56,14 +55,12 @@ male.addEventListener("change", () =>{
     if(male.checked){
         female.checked = false;
     }
-    checkRequiredFields();
 });
 
 female.addEventListener("change", () =>{
     if(female.checked){
         male.checked = false;
     }
-    checkRequiredFields();
 });
 
 // Helper functions
@@ -92,38 +89,6 @@ function calculateAge(dob){
         age--;
     }
     return age;
-}
-
-// Enable button only when all required fields are filled
-function checkRequiredFields(){
-    let filled = true;
-
-    // Check if either Yes or No is selected
-    if(!choiceYes.checked && !choiceNo.checked){
-        filled = false;
-    }
-
-    if(
-        !firstName.value.trim() ||
-        !lastName.value.trim() ||
-        !address.value.trim() ||
-        !password.value.trim() ||
-        !confirmPassword.value.trim() ||
-        !phone.value.trim() ||
-        !terms.checked
-    ){
-        filled = false;
-    }
-
-    if(choiceYes.checked){
-        if(
-            !birthday.value.trim() ||
-            !email.value.trim() ||
-            (!male.checked && !female.checked)
-        ){
-            filled = false;
-        }
-    }
 }
 
 // Validate all fields - only called on submit
@@ -223,9 +188,6 @@ function validateForm(){
     return valid;
 }
 
-// Terms checkbox listener
-terms.addEventListener("change", checkRequiredFields);
-
 // Submit form
 form.addEventListener("submit", (e) =>{
     e.preventDefault();
@@ -236,8 +198,7 @@ form.addEventListener("submit", (e) =>{
     // Validate all fields
     const isValid = validateForm();
 
-    if (!isValid)
-    {
+    if (!isValid){
         const firstErrorElement = document.querySelector('.error-message:not(:empty)');
         if (firstErrorElement){
             const errorInput = firstErrorElement.previousElementSibling;
@@ -245,23 +206,19 @@ form.addEventListener("submit", (e) =>{
                 behavior: 'smooth',
                 block: 'center'
             });
-            if (errorInput) {
+            if(errorInput){
                 errorInput.focus();
             }
         }
     }
-    else if(isValid){
+    else{
         // Show success message
         successMsg.textContent = "Registration successful! Redirecting...";
         successMsg.style.color = "green";
         successMsg.style.display = "block";
 
-        // Disable button to prevent multiple submits
-        submitBtn.disabled = true;
-        submitBtn.classList.remove("active");
-
         // Reset and redirect after delay
-        setTimeout(() => {
+        setTimeout(() =>{
             form.reset();
             personalSection.style.display = "none";
             document.querySelectorAll(".error-message").forEach((msg) => (msg.textContent = ""));
@@ -275,8 +232,4 @@ form.addEventListener("submit", (e) =>{
             checkRequiredFields();
         }, 2000);
     } 
-    else{
-        successMsg.textContent = "";
-        successMsg.style.display = "none";
-    }
 });
