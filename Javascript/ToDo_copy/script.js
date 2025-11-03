@@ -32,6 +32,9 @@ const TaskForm = document.getElementById("taskFormModal");
 const TaskTitle = document.getElementById("taskTitle");
 const TaskDescription = document.getElementById("taskDescription");
 const TaskDate = document.getElementById("taskDate");
+const todayDate = new Date().toISOString().split("T")[0];
+console.log(todayDate);
+TaskDate.setAttribute("min", todayDate);
 const TaskCreateSubmit = document.getElementById("taskCreateSubmit");
 const searchInput = document.getElementById("search-input");
 
