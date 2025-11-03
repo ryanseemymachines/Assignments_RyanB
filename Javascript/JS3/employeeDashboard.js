@@ -14,6 +14,11 @@ const empName = document.getElementById("empName");
 const empDesignation = document.getElementById("empDesignation");
 const empDob = document.getElementById("empDob");
 
+const today = new Date();
+today.setFullYear(today.getFullYear() - 18);''
+const maxDate = today.toISOString().split("T")[0];
+empDob.setAttribute("max", maxDate);
+
 // Form message element
 const formMessage = document.getElementById("formMessage");
 
@@ -42,7 +47,7 @@ let employee=[];
 let selectedEmployee=null;
 
 //Modal open function
-function openModal(action){
+async function openModal(action){
     currentAction=action;
     employeeModal.style.display="flex";
     employeeForm.reset();
@@ -53,12 +58,16 @@ function openModal(action){
         modalHeading.textContent="Add Element";
         saveEmployee.textContent="Save Employee";
         TableContainer.style.display="none";
+        empName.disabled=false;
+        empDesignation.disabled=false;
+        empDob.disabled=false;
     }
 
     if(action==="edit"){
         modalHeading.textContent="Edit Element";
         saveEmployee.textContent="Update Employee";
-        fetchEmployeeList();
+        await fetchEmployeeList();
+        removeDropdown();
         createDropdown();
         TableContainer.style.display="none";
     }
@@ -69,8 +78,9 @@ function openModal(action){
         empName.disabled=true;
         empDesignation.disabled=true;
         empDob.disabled=true;
+        await fetchEmployeeList();
+        removeDropdown();
         createDropdown();
-        fetchEmployeeList();
         TableContainer.style.display="none";
     }
 }
@@ -121,8 +131,8 @@ function createDropdown(){
     dropdown.appendChild(defaultOption);
     empName.parentElement.insertBefore(dropdown,empName);
     dropdown.addEventListener("change", (e) =>{
-        const ChosenName=e.target.value;
-        const ChosenEmployee=employees.find(emp => emp.name===ChosenName);
+        const chosenId = e.target.value;
+        const ChosenEmployee=employees.find(emp => emp.id === chosenId);
         
         if(ChosenEmployee){
             selectedEmployee=ChosenEmployee;
@@ -139,7 +149,7 @@ function populateDropdown(data){
     data.forEach(emp => {
         const option=document.createElement("option");
         option.textContent=emp.name;
-        option.value=emp.name;
+        option.value=emp.id;
         dropdown.appendChild(option);
     })
 }
@@ -151,17 +161,17 @@ function removeDropdown(){
 }
 
 //Add employee function
-function addEmployee(empData){
-    return new Promise((resolve,reject) => {
-        fetch(API_URL , {
-            method:"POST",
-            headers:{"Content-type":"application/json"},
-            body:JSON.stringify(empData)
-        })
-        .then(response => response.ok ? response.json():reject("Failed to add emplyee"))
-        .then(resolve)
-        .catch(reject);
-    });
+async function addEmployee(empData){
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(empData),
+    })
+    if (!response.ok) {
+        throw new Error("Failed to add employee");
+    }
+
+    return await response.json();
 }
 
 //Edit employee function
@@ -210,52 +220,108 @@ async function fetchEmployee(){
         const data = await res.json();
         employee=data;
         return data;
-    } catch (error) {
+    } 
+    catch(error){
         showFormMessage("Error fetching employee list!", "error");
     }
 }
 
-async function createTable(){
+async function createTable() {
     TableContainer.style.display = "flex";
 
-    if (document.getElementById("employeeTable")) return;
+    const existingTable = document.getElementById("employeeTable");
+    if (existingTable) existingTable.remove();
 
-    const TableView = document.createElement("table");
-    TableView.id = "employeeTable";
-    TableView.className = "employee-table";
-    TableContainer.append(TableView);
-    TableView.style.display = "block";
+    const loadingMsg = document.createElement("p");
+    loadingMsg.id = "loadingMessage";
+    loadingMsg.textContent = "Loading employee data...";
+    loadingMsg.style.margin = "auto";
+    loadingMsg.style.fontWeight = "bold";
+    loadingMsg.style.fontSize = "1.5em";
+    TableContainer.appendChild(loadingMsg);
 
-    const data = await fetchEmployee();
-    if(employee.length >0){
-        const tableHeadingRow=document.createElement("tr");
-        let headings=Object.keys(employee[0]);
-        headings.splice(0,1);
-        const last_key=headings.pop();
-        headings.unshift(last_key);
-        headings.forEach(key =>{
-            const tableHeading=document.createElement("th");
-            tableHeading.textContent=key.toUpperCase();
-            tableHeadingRow.appendChild(tableHeading);
+    try {
+        await fetchEmployee();
+        loadingMsg.remove();
+
+        const TableView = document.createElement("table");
+        TableView.id = "employeeTable";
+        TableView.className = "employee-table";
+        TableContainer.append(TableView);
+
+        if (employee.length > 0) {
+            const tableHeadingRow = document.createElement("tr");
+            let headings = Object.keys(employee[0]);
+            headings.splice(0, 1);
+            const last_key = headings.pop();
+            headings.unshift(last_key);
+
+            headings.forEach(key => {
+                const tableHeading = document.createElement("th");
+                tableHeading.textContent = key.toUpperCase();
+                tableHeadingRow.appendChild(tableHeading);
+            });
+
+            TableView.appendChild(tableHeadingRow);
+        }
+
+        employee.forEach(emp => {
+            let rowData = Object.values(emp);
+            rowData.splice(0, 1);
+            const last_value = rowData.pop();
+            rowData.unshift(last_value);
+            const Row = document.createElement("tr");
+            rowData.forEach(value => {
+                const cellData = document.createElement("td");
+                cellData.textContent = value.toUpperCase();
+                Row.appendChild(cellData);
+            });
+            const iconCell = document.createElement("td");
+            const icon = document.createElement("i");
+            icon.className = "fas fa-trash-alt";
+            icon.style.cursor = "pointer";
+            icon.style.color = "orangered";
+
+            icon.addEventListener("click", async () =>{
+                const confirmDelete = confirm("Are you sure you want to delete this employee?");
+                if (confirmDelete){
+                    await deleteEmployee(emp.id);
+                    createTable(); 
+                }
+            });
+
+            iconCell.appendChild(icon);
+            Row.appendChild(iconCell);
+            TableView.appendChild(Row);
         });
-        TableView.appendChild(tableHeadingRow);
+
+    } 
+    catch(error){
+        loadingMsg.textContent = "Error loading employee data!";
+        loadingMsg.style.color = "red";
+    }
+}
+
+//input validations
+function validateForm() {
+    let valid = true;
+
+    // Name validation
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!empName.value.trim() || !nameRegex.test(empName.value.trim())) {
+        showFormMessage("Name must contain only letters.", "error");
+        valid = false;
     }
 
-    employee.forEach(emp =>{
-        let rowData=Object.values(emp);
-        rowData.splice(0,1);
-        const last_value=rowData.pop();
-        rowData.unshift(last_value);
-        const Row=document.createElement("tr");
-        Object.values(rowData).forEach(value => {
-            const cellData=document.createElement("td");
-            cellData.textContent=value.toUpperCase();
-            Row.appendChild(cellData);
-        });
-        TableView.appendChild(Row);
-    });
+    // Designation validation
+    if (!empDesignation.value.trim() || !nameRegex.test(empDesignation.value.trim())) {
+        showFormMessage("Designation must contain only letters.", "error");
+        valid = false;
+    }
     
+    return true;
 }
+
 
 //form submission
 employeeForm.addEventListener("submit", (e)=> {
@@ -268,44 +334,57 @@ employeeForm.addEventListener("submit", (e)=> {
     };
 
     if(currentAction==="add"){
+        if(!validateForm()) return;
+
+        disableButton();
         showFormMessage("Adding employee...", "info");
         addEmployee(empData)
         .then(() =>{
             showFormMessage("Employee added successfully!", "success");
             employeeForm.reset();
-            disableButton();
             setTimeout(() => {
                 closeModalFunc();
             }, 1500);
         })
-        .catch(() => showFormMessage("Error adding employee!", "error"));
+        .catch(() => {
+            showFormMessage("Error adding employee!", "error");
+            enableButton();
+        });
     }
 
     if(currentAction==="edit"){
+        if(!validateForm()) return;
+
+        disableButton();
         showFormMessage("Updating employee...", "info");
         editEmployee(selectedEmployee.id,empData)
         .then(() =>{
             showFormMessage("Employee edited successfully!", "success");
             employeeForm.reset();
-            disableButton();
             setTimeout(() => {
                 closeModalFunc();
             }, 1500);
         })
-        .catch(() => showFormMessage("Error editing employee!", "error"));
+        .catch(() => {
+            showFormMessage("Error editing employee!", "error");
+            enableButton();
+        });
     }
 
     if(currentAction==="delete"){
+        disableButton();
         showFormMessage("Deleting employee...", "info");
         deleteEmployee(selectedEmployee.id)
         .then(() =>{
             showFormMessage("Employee deleted successfully!", "success");
-            disableButton();
             setTimeout(() => {
                 closeModalFunc();
             }, 1500);
         })
-        .catch(() => showFormMessage("Error editing employee!", "error"));
+        .catch(() => {
+            showFormMessage("Error deleting employee!", "error");
+            enableButton();
+        });
     }
 });
 
