@@ -18,9 +18,6 @@ const personalSection = document.querySelector(".personal-data-choice");
 const successMsg = document.getElementById("regSuccessMessage");
 const submitBtn = document.getElementById("reg-submit");
 
-// Initially disable submit button
-submitBtn.disabled = true;
-
 // Show/Hide Personal Data Section
 choiceYes.addEventListener("change", () =>{
     if(choiceYes.checked){
@@ -127,15 +124,6 @@ function checkRequiredFields(){
             filled = false;
         }
     }
-
-    if(filled){
-        submitBtn.disabled = false;
-        submitBtn.classList.add("active");
-    } 
-    else{
-        submitBtn.disabled = true;
-        submitBtn.classList.remove("active");
-    }
 }
 
 // Validate all fields - only called on submit
@@ -153,7 +141,7 @@ function validateForm(){
     }
 
     // Middle Name validation
-    if(middleName.value && !nameRegex.test(middleName.value.trim())){
+    if(middleName.value.trim() && !nameRegex.test(middleName.value.trim())){
         showError(middleName, "Middle name can only contain letters.");
         valid = false;
     }
@@ -197,6 +185,12 @@ function validateForm(){
         valid = false;
     }
 
+    //Personal data choice
+    if(!choiceYes.checked && !choiceNo.checked){
+        showError(choiceNo, "Please select your choice.");
+        valid = false;
+    }
+
     // Personal data validation (if Yes is selected)
     if(choiceYes.checked){
         if(!birthday.value){
@@ -222,11 +216,7 @@ function validateForm(){
 
     // Terms validation
     if(!terms.checked){
-        const termsGroup = terms.closest(".form-group");
-        const errorDiv = termsGroup.querySelector(".error-message");
-        if(errorDiv){
-            errorDiv.textContent = "You must accept terms and conditions.";
-        }
+        showError(terms,"You must accept terms and conditions.");
         valid = false;
     }
 
@@ -246,7 +236,21 @@ form.addEventListener("submit", (e) =>{
     // Validate all fields
     const isValid = validateForm();
 
-    if(isValid){
+    if (!isValid)
+    {
+        const firstErrorElement = document.querySelector('.error-message:not(:empty)');
+        if (firstErrorElement){
+            const errorInput = firstErrorElement.previousElementSibling;
+            (firstErrorElement).scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+            if (errorInput) {
+                errorInput.focus();
+            }
+        }
+    }
+    else if(isValid){
         // Show success message
         successMsg.textContent = "Registration successful! Redirecting...";
         successMsg.style.color = "green";
@@ -265,7 +269,7 @@ form.addEventListener("submit", (e) =>{
             successMsg.style.display = "none";
             
             // Redirect (update path as needed)
-            window.location.href = "../ToDo/index.html";
+            window.location.href = "../ToDo_copy/index.html";
                         
             // For demonstration, just re-enable the button
             checkRequiredFields();
