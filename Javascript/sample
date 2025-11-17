@@ -1,0 +1,407 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+}
+
+
+import HomeHeader from '../../components/HomeHeader';
+import HomeFooter from '../../components/HomeFooter';
+import PostList from '../../components/PostList';
+import styles from './index.module.css';
+
+function Home() {
+  return (
+    <div className={styles.pageWrapper}>
+      <HomeHeader/>
+      <div className={styles.contentWrapper}>
+        <PostList/>
+      </div>
+      <HomeFooter/>
+    </div>
+  )
+}
+
+export default Home;
+
+
+
+
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contentWrapper {
+    flex: 1;
+}
+
+.textAreaInput{
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    resize: vertical;
+    box-sizing: border-box;
+    min-height: 150px;
+}
+
+.textAreaInput:focus{
+    box-shadow: 0 0 20px rgb(223, 223, 223);
+    outline: none;
+    border: 2px solid rgb(123, 123, 123);
+}
+
+import { useState } from "react";
+import BlogPost from "../BlogPost";
+import BlogHeader from "../BlogHeader";
+import CreateBlogButton from "../CreateBlogButton";
+import NewPostForm from "../NewPostForm";
+import Modal from "../Modal";
+
+function PostList() {
+  const [posts, setPosts] = useState([
+   {
+      id: 1,
+      title: "React Basics",
+      author: "Jane Doe",
+      date: "18-07-2024",
+      content: "React is a popular JavaScript library developed by Facebook for building user interfaces, especially single-page applications (SPAs). It helps developers create fast and interactive web apps by breaking the UI into reusable components. Instead of reloading an entire page every time something changes, React updates only the parts of the page that need to change — making it efficient and responsive.\n\nThe core idea of React revolves around components. A component is a small, reusable piece of UI — for example, a button, header, or form. Components can be either class components or functional components, though functional components are now preferred with React Hooks. React uses a syntax called JSX (JavaScript XML), which allows you to write HTML-like code inside JavaScript. JSX makes it easier to visualize and structure UI elements directly within the logic.",
+    },
+    {
+      id: 2,
+      title: "State and Props",
+      author: "John Smith",
+      date: "19-07-2024",
+      content: "React components often need to share or manage data. This is where props and state come in. Props (properties) are used to pass data from a parent component to a child component — similar to function parameters. State, on the other hand, represents data that belongs to a component itself and can change over time. When a component's state changes, React automatically re-renders that part of the UI to reflect the new data.",
+    },
+    {
+      id: 3,
+      title: "Lifecycle Methods",
+      author: "Emily Johnson",
+      date: "20-07-2024",
+      content: "In React, lifecycle methods are special functions that run automatically at different stages of a component's life — from when it is created (mounted) to when it is removed (unmounted) from the UI. They allow developers to perform specific actions at these stages, such as fetching data, updating the DOM, or cleaning up resources. Lifecycle methods are mainly used in class components, while React Hooks serve a similar purpose in functional components.",
+    },
+  ]);
+
+  const [selectedId,setSelectedId] = useState(posts[0].id);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const displayPost=posts.find(post => post.id===selectedId);
+
+  const handleAddPost = (newPost) => {
+    setPosts((prev) => [newPost, ...prev]);
+    setSelectedId(newPost.id);
+  };
+
+  return (
+    <div>
+      <section >
+        <BlogHeader posts={posts} selectedPost={setSelectedId} selectedId={selectedId}/>
+        <CreateBlogButton
+          type="button"
+          title="+ Create New Blog"
+          onClick={() => setIsModalOpen(true)}
+        />
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <NewPostForm
+            onAddPost={handleAddPost}
+            onClose={() => setIsModalOpen(false)}
+          />
+        </Modal>
+        
+        {displayPost &&
+          <BlogPost
+            key={displayPost.id}
+            title={displayPost.title}
+            author={displayPost.author}
+            date={displayPost.date}
+            content={displayPost.content}
+          />}
+
+      </section>
+    </div>
+  );
+}
+
+export default PostList;
+
+
+import styles from "./index.module.css";
+import { useState } from "react";
+import Input from "../Input";
+import TextArea from "../TextArea";
+import AddPostButton from "../AddPostButton";
+import CloseButton from "../CloseButton";
+
+function NewPostForm({ onAddPost, onClose }) {
+  const [newPost, setNewPost] = useState({
+    title: "",
+    author: "",
+    content: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNewPost((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!newPost.title || !newPost.author || !newPost.content) {
+      alert("Please fill out all fields.");
+      return;
+    } 
+      onAddPost({
+        id: Date.now(),
+        title: newPost.title,
+        author: newPost.author,
+        date: new Date().toLocaleDateString(),
+        content: newPost.content,
+      });
+    
+    setNewPost({ title: "", author: "", content: "" });
+    onClose();
+  };
+
+  return (
+    <form className={styles.formContainer} onSubmit={handleSubmit}>
+      <div className={styles.formGrp}>
+        <div className={styles.titleGrp}>
+          <h2>Add new Blog Post</h2>
+          <CloseButton type="button" onClick={onClose} />
+        </div>
+
+        <Input
+          type="text"
+          name="title"
+          placeholder="Post Title"
+          value={newPost.title}
+          onChange={handleChange}
+        />
+
+        <Input
+          type="text"
+          name="author"
+          placeholder="Author"
+          value={newPost.author}
+          onChange={handleChange}
+        />
+
+        <TextArea
+          name="content"
+          placeholder="Enter the content"
+          value={newPost.content}
+          onChange={handleChange}
+        />
+
+        <AddPostButton
+          type="submit"
+          title="Publish Post"
+        />
+      </div>
+    </form>
+  );
+}
+
+export default NewPostForm;
+
+.formContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formGrp{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.titleGrp{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.inputField{
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.inputField:focus{
+    box-shadow: 0 0 20px rgb(223, 223, 223);
+    outline: none;
+    border: 2px solid rgb(123, 123, 123);
+}
+
+
+.footerGrp{
+    background-color: rgb(251, 234, 214);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footerGrp p{
+    margin: 10px 0 0;
+}
+
+.socialsGrp ul{
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.socialsGrp ul li{
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.socialsGrp ul li:hover{
+    text-decoration: underline;
+}
+
+
+import { Component } from "react";
+import styles from "./index.module.css";
+
+class BlogPost extends Component {
+  componentDidMount() {
+    console.log(`BlogPost "${this.props.title}" has been mounted`);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.title !== this.props.title) {
+      console.log(
+        `BlogPost has been updated from "${prevProps.title}" to "${this.props.title}"`
+      );
+    }
+  }
+
+  render() {
+    const { title, author, date, content } = this.props;
+    const paragraphs = content.split('\n\n').filter(p => p.trim());
+    return (
+      <div className={styles.blogContainer}>
+        <article className={styles.blogPostCard}>
+          <h2>{title}</h2>
+          <p>
+            <strong>By:</strong> <big>{author}</big> | <i>{date}</i>
+          </p>
+          {paragraphs.map((para, idx) => (
+          <p key={idx} className="text-lg leading-relaxed mb-4">
+            {para}
+          </p>
+        ))}
+
+        </article>
+      </div>
+    );
+  }
+}
+
+export default BlogPost;
+
+
+import styles from "./index.module.css";
+
+function BlogHeader({ posts,selectedPost , selectedId}) {
+  return (
+    <div className={styles.headerContainer}>
+      <div className={styles.headerList} >
+      {posts.map((post) => (
+        <div key={post.id} className={styles.postCard} onClick={() => {selectedPost(post.id);}}>
+          <h3>{post.title}</h3>
+          <h5>By:{post.author} <span>{post.date}</span></h5>
+        </div>
+      ))}
+    </div>
+    </div>
+    
+  );
+}
+
+export default BlogHeader;
+
+
+.headerContainer{
+    padding: 20px;
+    background-color: rgb(225, 221, 214);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.headerContainer::-webkit-scrollbar {
+    height: 8px;
+}
+
+.headerContainer::-webkit-scrollbar-track {
+    background: rgb(200, 196, 189);
+    border-radius: 10px;
+}
+
+.headerContainer::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+.headerContainer::-webkit-scrollbar-thumb:hover {
+    background: rgb(50, 50, 50);
+}
+
+.headerList{
+    display: flex;
+    gap: 15px;
+    width: max-content; /* Important: allows content to expand beyond container */
+}
+
+.postCard{
+    min-width: 200px;
+    font-size: 1.1em;
+    padding: 10px 50px;
+    border: 1px solid black;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* Prevents cards from shrinking */
+}
+
+.postCard:hover{
+    transform: scale(1.02);
+}
+
+.postCard h3{
+    text-decoration: underline;
+}
+
+.postCard h5{
+    font-weight: 600;
+}
+
+.postCard span{
+    font-weight: 300;
+}
+
+
